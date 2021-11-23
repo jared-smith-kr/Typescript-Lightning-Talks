@@ -9,7 +9,7 @@
 
 ### Intersections
 
-Intersections are the type system's 'and', instead of the Union from last time where a type could be an 'A' or a 'B', with Intersections the type is *both* an 'A' *and* a `B`:
+Intersections are the type system's 'and', instead of the Union from last time where a type could be an 'A' or a 'B', with Intersections the type is *both* an 'A' *and* a 'B':
 
 ```typescript
 type Foo = {
