@@ -41,7 +41,14 @@ function makeDate(strOrTsOrYr?: string | number, month?: number, day?: number, h
 Somebody asked in the original topic about project structure and refactoring types. I will give a full talk on that at somepoint, but let's stop for a second here and clean this up:
 
 ```typescript
-type PositionalDateArgs = [month?: number, day?: number, hour?: number, minute?: number, second?: number, millisecond?: number]
+type PositionalDateArgs = [
+    month?: number,
+    day?: number,
+    hour?: number,
+    minute?: number,
+    second?: number,
+    millisecond?: number,
+]
 
 function makeDate2(): Date
 function makeDate2(dateStr: string): Date
