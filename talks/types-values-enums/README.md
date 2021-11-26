@@ -21,30 +21,19 @@ Remember you are processing that as *text*, and you have to figure out what to d
 
 So here we have the concept of a boolean *context*, where the value has some special significance based on its *textual position in the source*. But if you've never worked in a statically-typed language before there is another context you now have to remember.
 
-In statically-typed languages there are actually *two* languages, the *type* language and the *value* or expression language. Take Haskell for example (it's okay if you don't know Haskell, I don't really either):
+In statically-typed languages there are actually *two* languages, the *type* language and the *value* or expression language. You can't use one where the other would go syntactically, just like you can't use a value where an identifier would go:
 
-```haskell
--- Signature for a function that takes a parameter that must be an integral number
--- type, i.e. integer or bignum and returns a value of that same type
-fac :: (Integral a) => a -> a
-fac n = product [1..n] -- take the product of the numbers from 1-to-n
+```javascript
+var 3=foo; // how many times have you seen something like this by a beginner on Stack Overflow?
 ```
 
-Here there is by convention at least a strong separation between the two: the first line is the *type* of the function and the second is the implementation. You couldn't swap them, the implementation makes no sense as a type and the type makes no sense as an implementation and the *structure* of the language makes it clear to both the compiler (and humans in this case) which is which, even if you don't know Haskell. The separation is not quite as clean in something like Java:
+So we can't say this either
 
-```java
-public long factorialUsingForLoop(int n) {
-    long fact = 1;
-    for (int i = 2; i <= n; i++) {
-        fact = fact * i;
-    }
-    return fact;
-}
+```typescript
+const foo = 3 : number
 ```
 
-Here the code and the types are interwoven and mostly we can tell based on assumptions about the *meaning of English words*, i.e. we know what `int` and `long` usually refer to in programming languages. But we also understand that the grammar of the language constrains us, we can't swap the `int` and the `n` in the function signature so we know that `int` is the type and `n` is the variable. There is still a bright-line separation between the things that can be types and the things that can be values.
-
-But in Typescript we have literal types, so *the same identifiers have different meanings based on whether they're at a place in the text where a type must go and the place where other parts of the language go*. This can be *super* confusing if you don't think about it like a compiler writer.
+But it gets waaay more complicated. In Typescript we have literal types, so *the same identifiers have different meanings based on whether they're at a place in the text where a type must go and the place where other parts of the language go*. This can be *super* confusing if you don't think about it like a compiler writer.
 
 ```typescript
 type A = 'a'     // the 'a' is a *type*
