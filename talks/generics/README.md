@@ -1,6 +1,7 @@
-# Talk \# 4 Generics and Overloads
+# Talk \# 4 Generics and Utility Types
 
-* [Playgound]()
+* [Playgound](https://www.typescriptlang.org/play?#code/PTAEBUEMBsGtQMSgCygOIFMB2GBOBLAYwGdRIsATUAeQDc9oB7SC4gKDZFAFF7cBPAEaMK-AOSkAYpFqMCAFwygAklkW5a+DAHcIjAA5EAXKAAy+LLAxVzxecQCEHQtEjFSt+QDkRSgN5soEGg+gCugtBEoDgAHvImnj4USgA+0aHQ0IHBYRFRtDChGCZYoQC2gngcwaCEjFh2uKGE8nKgABQF0EUl5ZW4ADTRGHEJ+HZJqemZoAC809AAlKABNTXyABbjAHRdRXOgexjZa6CbO7HyB5cnoAC+bA9sLm6kAMoWAObQ-OaW1p4VrdcpFCKANhgWGMJr5QGlSjN5gisrc6g15E0Wm12ttcVhfMRod5fABtAC6y1Wp1q9TsoBJADN8Lg7ENcdtcBg7GTrgTbjV8AyOkyWfJKfzqediNsISwDiK7BLTpy7NsGXJuJBCBt2vjknMAHxnLbSlgUXW+RaLJX3W53UDVYIAKhJb34FUY0G2+HUkFauB57XF1NA0AwV1lFCJkzhCwOUplkIoNu0WzDHUjwZDwX4WmgVEjNpqkYOke2NxDDxDuYw+YWdsdQU+4bOkHw0A6ixMHyw31+FisFEB8IyHapp0FHQTkYA-OWRmKgdngpz5KFcFhhroe32-oPPO1p0n53FrZXG2tV+vN8iG7czR09cUzONickuy+Yfrx2tJ+0HEeLBZsugFUEivg2vatbEP4RbBE+J5XPMoGQReNRXhu0QQTUTw1MkYaKI+0aWiYsj4FQP41ARIScrQ1yjja6q4B01FPqAjBClKwHZn+bGzPxCzLIInKQLAcFBLxsL8Ui3HLhJQrtPotHLEpGC0IhvLJIh4lrMJkJiXJtqGapdHgckqE4ReaLyG2DREZ+b4YB+wiepCm6UcETEsS2bEcca4yydSkn6tJgmgBhm4MjAME6cFSihVggXLhFZxNMchlVtSuHUilUXQDBoBcAAUqEdKtGQ+j6JCBWbEodRlIYYaDKA2hKMQGyMBkFBYGIVxamuMA-KAlRkBESjlSJ2r+ewllPFw1DwK1Yj0KAnyMFcpQVHg0qgG8jBYboBGkNoChKINxp+uxoR9Z8tmgF5jRfMQAycGALlhuQz2gOGhDbKAABK+CfBs8gzqAACqZRDD4f2qKARUyG4hAEPoVyppdS0rTAImiC1CiKFgr0tZ1dYjdgnXA0MtWchIWHnL2o2dRtfTbaAFjGkoTp1MkTpDPUQ3s7VRNOvI-BVcQTqgAAQtdbNCso4IyGdDnsUKj29l9CvaOQVy1TSDXtngZz7drmFlEogpEwrD6QOkW24H9khyGuWB+rW-BUxCNOkLbxCetd+D1CYzY4AQJCgJI4AAOrOK47jS+G6iTAAPOARp+IVYBeNQ4DcBzEASMC4SgsMowJ-ISe+KnRojpkRd5GCRwmOAVm0hizT+h0TcQEMlwmFLid4Cnaexsi9GZEl027IU8WHDPNoJpc1wLg2c1Z+t40bJdAAG4Dby17YdiNnz4PQm5osj4bjWLSj1KApUYEM5BUOAby1OQ31n2zWAMkbPpGM4NuoBiB8S3OXSuyR2hiC2GIZYmdgEYi+M8IBWBQE4F0APCuQ9fDtAAKxwOCFwTa-QOBcAAIKUAOi1OqH9OQnR9LfdcDl2Sx1eOAvAe4ASvmrkuHIxcoiRn7oPXAw8a5xiRAxVEbdMSdxxHiAkQisEiKrmnckk80R0kZMyVkoB2QqnkDyMyXIbR-gVIuDypxQLym0fIHS+i1Qai1DqPiRoExmgtO+M8WU7QOluC6N0HovQMNwH6OQgZJ7UUEew5RyQeG1w7MhE0iYWApjTEodomZeHLhrHWQshkSzzDLBWbx1Y8xUFvJZW4zZdZtg7EGRR6hOFDm4SPeJWTfwKVAnOS4k90LhmvGAzBjSBxcLsNXQ8SSikLi8acbKyp+mYQqcEOZZAKBUA8c+IZ2DYlpw-FsmJGAeEWLlh0ACkyky9OCFYoxkFvr5VgoZBCS9Ek7Dyd4m0KUnx3jwrWK+9l9miI-GRCiNpqImXHlkEMXl2isVhH5Li7SQxxTmAJZEQkRIGTksihKlyJwKRMri6kJkNJGO0oZSy5Lgh6VEjpTKy5wU3PPJUmo1lbKkF1A07ZhzdkmHem5RFnlsSwv1PCk0hLsWotHMsXK0V0pYoUnxVFhK+lrkwu3OVy46VrBWSqgZeUCrFVKrrfakBKrVU3nVRgBsmpDFasAjqXUep9RaKEQa-BhpnTGsbcKkIppSlXqQ9ehFNiXTUngd1+hXCECUHazkv9ORYGjVdZigJn6gBjKLcW1DFYrXKvoNhetM1KHzSE826hthEyjjQzc0V9pc2kbZSWIc8BEC+n7C6usITurKEaj1+t83yHwF67QPoNhkGAVVQggoohFoAWwCw6gopJuUAANQwFiZiP4Yi9HtrcfgO6SFPAXXgJdShV3roAMzfTiNgVgKg10bvaQALwPVUJ4DJQiJsHXfGyVhiAPtTtegmd7z0bqNJ0ddzcgWMHIisNeoAq3vxrflfaFATWhnWqrfOxBIDm38hrbNaGD6bDnt0Lkc6P1fsDpuapD7-QAGErX6HqNgeQgGFy3tIKB-0QwADSQHOOgCsPwPyad2jCZMLxoY9BCBQebiSXjPIfwpRkySYTZJHgcEoy0ajhx13mCsNQXAdG5DsZvZQLjJnmLzG43IA0EHZMQGg7Bvw8GFqQHdXUT0f0fC6BDWjJQW8Vp+zw+RSEWHm1hy+kdDDjB4CXRC+GLYDN-MHxmB1KqH7Mjupw-QImpUyAzFtkwK4fl80WE9koQQoR2xXHZgHSIoszg30cGYcMpAcPutS3a7WahvVlFEsrbT37Nypd-cYrgtsXjuCfpQxLFUlIGAIG7MguBPjlFY19NNGj24tDIJuCwdhyBJtFXVOOO09plq2BsBmkQrDTSJv1V12X354dCPob+PBiBVRCWoRgf0AASjBdBEbtUR-zM4OBFtAPRzuSIdAdHZJANbhJ9v8DUYaODbBoeMfRCEiw1hYemfAAcVzRp4e6DkdsZHnxUfkHRxSTHLc2DDd0wNv9qgjuJu5QJizcH7PZHo64J9L6YcNoJxQInuBq4vSCEjlHJhceNA7nIAACsj3DV8WTJyVxiWyhP-TVwNGwD8nObLc-ADfHX4ucCS8N2ndO2RPkI6F5AEXVOafEGtE8abpAyG8J2zI7EIIojbrtv0biCYYgHBiNkB4PugHqn2vMdnXIzfHYwO0MhQwL3Wg0a5bYTBPjtCT9sGI1ogA)
+* [Documentation on utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 
 ## Everybody's Favorite Interview Topic: Linked Lists!
 
@@ -45,7 +46,7 @@ class SinglyLinkedList {
 
     add (node: Node): Node {
         if (!this.head) {
-            this.head = n
+            this.head = node
         } else {
             node.next = this.head
         }
@@ -141,7 +142,7 @@ class BetterLinkedList<T> {
 
     add (node: BetterNode<T>): BetterNode<T> {
         if (!this.head) {
-            this.head = n
+            this.head = node
         } else {
             node.next = this.head
         }
@@ -169,9 +170,71 @@ class BetterLinkedList<T> {
             }
         }
 
-        return false // Just to appease the compiler, we shouldn't actually be able to reach this
+        return false
     }
 }
 ```
 
-Note that every place we reference our List and Node types we have to pass the type parameter.
+Note that every place we reference our List and Node types we have to pass the type parameter. We can also *constrain* generics, so that they must be compatible with a specific type:
+
+```typescript
+interface IVector {
+    x: number
+    y: number
+}
+
+interface IVec3 extends IVector {
+    z: number
+}
+
+function takesVec<T extends IVector> (vec: T): void {}
+
+// We can also do a lot of the same things we do with values:
+
+function getVectorComponent<T extends IVector, K extends keyof T>(key: K, vec: T): T[K] {
+    return vec[key]
+}
+
+function vecLikeOrVector<T extends IVector = IVector>(vec: T): void {}
+```
+
+Okay cool. Now that we have some idea of generics, lets look at something that will hopefully save us all a lot of pain, the [built in utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)! Lets say that we want to make a function that takes a class, and some appropriate arguments, and construct an instance of the class. Somethihng like this actually came up in Esperanto. How do we do that?
+
+```typescript
+type Ctor = new (...args: any[]) => {} // NOTE: not a function body!
+type ConstrainedCtor<T = {}> = new (...args: any[]) => T
+
+function makesInstance<T extends {}>(
+  Clazz: ConstrainedCtor<T>,
+  ...args: ConstructorParameters<ConstrainedCtor<T>> // <-- NOTE: We didn't define this!
+): InstanceType<ConstrainedCtor<T>> { // <-- or this!
+  return new Clazz(...args)
+}
+
+class A {
+  constructor (public x: number) {
+    this.x = x
+  }
+}
+
+const foo = makesInstance(A, 3)
+console.log(foo.x)
+```
+
+I won't cover these, but here's an (incompletel) list with descriptions:
+
+* `Partial<Type>` makes all fields of `Type` optional
+* `Required<Type>` makes all fields of `Type` required
+* `Readonly<Type>` makes all fields of `Type` readonly
+* `Record<Keys, Type>` maps `Keys` to values of `Type`, use in place of interface if all values share type
+* `Pick<Type, Keys>` creates the subset of the properties of `Type` defined by `Keys`
+* `Omit<Type, Keys>` creates the subset of the properties of `Type` with all the properties *except* `Keys`
+* `Exclude<Type, ExcludedUnion>` removes `Type` from the union type `ExcludedUnion`
+* `Extract<Type, Union>` creates the subset of assignment compatible members of two unions
+* `NonNullable<Type>` equivalent to `Exclude<null | undefined, Type>`
+* `Parameters<Type>` extracts the parameters from a function as a Tuple
+* `ConstructorParameters<Type>` same but for classes
+* `ReturnType<Type>` extracts the return type of a function,
+* `InstanceType<Type>` extracts the instance type of a class
+* `ThisParameterType<Type>` extracts the type of `this` for a function, useful with e.g. `Function.prototype.call`
+* `OmitThisParameter<Type>` removes `this` type from function, useful with `Function.prototype.bind`
