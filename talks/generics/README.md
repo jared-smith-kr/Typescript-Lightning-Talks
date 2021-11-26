@@ -204,8 +204,10 @@ Lets try to type the response from a fetch request...
 async function getSomething<T>(url: string): Promise<T> {
     const resp = await fetch(url)
     if (resp.status > 399 || resp.status < 200) {
+        // Error! Type 'string' is not assignable to type 'T'.
+        // 'T' could be instantiated with an arbitrary type which
+        // could be unrelated to 'string'.(2322)
         return resp.text()
-    } else {
         const data = await resp.json()
         return data
     }
