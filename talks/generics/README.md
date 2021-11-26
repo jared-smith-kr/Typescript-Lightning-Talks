@@ -198,6 +198,34 @@ function getVectorComponent<T extends IVector, K extends keyof T>(key: K, vec: T
 function vecLikeOrVector<T extends IVector = IVector>(vec: T): void {}
 ```
 
+Lets try to type the response from a fetch request...
+
+```typescript
+async function getSomething<T>(url: string): Promise<T> {
+    const resp = await fetch(url)
+    if (resp.status > 399 || resp.status < 200) {
+        return resp.text()
+    } else {
+        const data = await resp.json()
+        return data
+    }
+}
+```
+
+Oops! This happens when you try to return a concrete type from a function that returns a generic. We can fix this simply by including the concrete type in the signature:
+
+```typescript
+async function getSomething2<T>(url: string): Promise<T | string> {
+    const resp = await fetch(url)
+    if (resp.status > 399 || resp.status < 200) {
+        return resp.text()
+    } else {
+        const data = await resp.json()
+        return data
+    }
+}
+```
+
 Okay cool. Now that we have some idea of generics, lets look at something that will hopefully save us all a lot of pain, the [built in utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)! Lets say that we want to make a function that takes a class, and some appropriate arguments, and construct an instance of the class. Somethihng like this actually came up in Esperanto. How do we do that?
 
 ```typescript
