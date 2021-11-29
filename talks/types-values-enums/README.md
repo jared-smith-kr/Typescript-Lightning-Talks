@@ -26,7 +26,7 @@ type A = 'a'     // the 'a' is a *type*
 const a: A = 'a' // the 'a' is a *value*
 ```
 
-How does the compiler know whether we're talking about the literal string *value* `'a'` or the literal string *type* `'a'`? By what position it occupies in the source, so you have to understand the difference, which I label as a *type context* (similar to the boolean context above).
+How does the compiler know whether we're talking about the literal string *value* `'a'` or the literal string *type* `'a'`? By what position it occupies in the source, so you have to understand the difference, which I label as a *type context*.
 
 Strings, numbers, booleans, undefined, and null can all be used this way:
 
