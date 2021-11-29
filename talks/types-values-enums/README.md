@@ -6,21 +6,6 @@
 
 One thing I mentioned last time when discussing `typeof` was that it has a different meaning when syntactically in a 'type' position. That got some confused looks methinks, so lets explore what I mean by that.
 
-Let's imagine that you are tasked with embedding Javascript as a scripting language in some other system, like a game engine or a new terminal emulator or whatever (the way it's currently embedded in your favorite C++ web browser). And for the sake of this example, no current embedding solution works, you're going to have to write your own compiler for Javascript.
-
-How would you treat this?
-
-```javascript
-let foo = 3
-if (foo) {
-    // do something
-}
-```
-
-Remember you are processing that as *text*, and you have to figure out what to do, you can't just call `eval`. How would you recreate the truthy/falsey mechanics of Javascript in some other language? Lets say that you're writing the compiler in Scheme in which boolean false `#f` is the *only* value that is false in a conditional, *every* other value (including `'()`!) is truthy, so you can't just piggy-back onto the host language's truthy/falsey semantics. You'd probably create an associative data structure with a mapping between the values that map to `false` in this context and then when evaluating the code you'll have to check if you're in a conditional in the parse tree and look up the appropriate mapping from the value of the node. 
-
-So here we have the concept of a boolean *context*, where the value has some special significance based on its *textual position in the source*. But if you've never worked in a statically-typed language before there is another context you now have to remember.
-
 In statically-typed languages there are actually *two* languages, the *type* language and the *value* or expression language. You can't use one where the other would go syntactically, just like you can't use a value where an identifier would go:
 
 ```javascript
