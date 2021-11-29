@@ -5,6 +5,8 @@
 
 ## Everybody's Favorite Interview Topic: Linked Lists!
 
+![donate](https://imgs.xkcd.com/comics/linked_list_interview_problem.png)
+
 ```typescript
 class Node {
     public next: Node | null
@@ -78,6 +80,9 @@ class SinglyLinkedList {
     }
 }
 ```
+
+### Bonus exercise:
+Write a implementation of `reverse` that allocates no new `Node`s and runs in `O(n)` time!
 
 Ok we've got numbers. So now lets write all that out again for strings, booleans, etc. Right?
 
@@ -227,6 +232,12 @@ async function getSomething2<T>(url: string): Promise<T | string> {
     }
 }
 ```
+
+## Quick Digression on Parameter Names
+
+We've all been told with very few exceptions like loop indicies to never give variables single-letter names like `x`, but to instead give longer descriptive ones relevant to the domain. You've probably seen me use short variable and function names in these talks, and probably thought "he's just keeping it short and vague because they're just general examples". And for the most part you'd be right. But in the case of generics, authors *frequently* use single letter variables to name type parameters. 
+
+It's actually for the same reason we use foo/bar/baz for general examples: we don't want to get too hung up on the specific details of something that is supposed to have broad generality. The type variable `T` could stand in for a large number of different types, and any details about what the limitations on `T` might be are easily (YMMV) gleaned from the constraints on the generic, e.g. `<T extends DomainSpecificTypeName>` will have at least the required properties of `DomainSpecificTypeName` and *that* name is the one that matters.
 
 Okay cool. Now that we have some idea of generics, lets look at something that will hopefully save us all a lot of pain, the [built in utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)! Lets say that we want to make a function that takes a class, and some appropriate arguments, and construct an instance of the class. Somethihng like this actually came up in Esperanto. How do we do that?
 
