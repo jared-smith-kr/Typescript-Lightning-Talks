@@ -22,7 +22,7 @@ class SinglyLinkedList {
     public head: Node | null = null
 
     constructor (...nodes: Node[]) {
-        const [first, ...rest] = nodes
+        const [first, ...rest] = nodes.reverse()
         if (first) {
             this.head = first
             rest.forEach(node => this.add(node))
@@ -43,17 +43,13 @@ class SinglyLinkedList {
             return new SinglyLinkedList(this.head.next)
         }
 
-        return null
+        return new SinglyLinkedList()
     }
 
     add (node: Node): Node {
-        if (!this.head) {
-            this.head = node
-        } else {
-            node.next = this.head
-        }
-
-        return node
+        node.next = this.head;
+        this.head = node;
+        return node;
     }
 
     delete (n: Node): void {
@@ -61,7 +57,11 @@ class SinglyLinkedList {
         for (let node of this) {
             if (node === null) break
             if (node === n) {
-                if (prev) prev.next = node.next
+                if (prev) {
+                    prev.next = node.next;
+                } else {
+                    this.head = node.next
+                }
                 break
             }
             prev = node
@@ -121,7 +121,7 @@ class BetterLinkedList<T> {
     public head: BetterNode<T> | null
 
     constructor (...nodes: BetterNode<T>[]) {
-        const [first, ...rest] = nodes
+        const [first, ...rest] = nodes.reverse()
         if (first) {
             this.head = first
             rest.forEach(node => this.add(node))
@@ -142,17 +142,13 @@ class BetterLinkedList<T> {
             return new BetterLinkedList<T>(this.head.next)
         }
 
-        return null
+        return new BetterLinkedList<T>()
     }
 
     add (node: BetterNode<T>): BetterNode<T> {
-        if (!this.head) {
-            this.head = node
-        } else {
-            node.next = this.head
-        }
-
-        return node
+        node.next = this.head;
+        this.head = node;
+        return node;
     }
 
     delete (n: BetterNode<T>): void {
@@ -160,7 +156,11 @@ class BetterLinkedList<T> {
         for (let node of this) {
             if (node === null) break
             if (node === n) {
-                if (prev) prev.next = node.next
+                if (prev) {
+                    prev.next = node.next;
+                } else {
+                    this.head = node.next
+                }
                 break
             }
             prev = node
