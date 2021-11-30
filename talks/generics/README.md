@@ -208,6 +208,7 @@ async function getSomething<T>(url: string): Promise<T> {
         // 'T' could be instantiated with an arbitrary type which
         // could be unrelated to 'string'.(2322)
         return resp.text()
+    } else {
         const data = await resp.json()
         return data
     }
