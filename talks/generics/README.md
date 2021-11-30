@@ -193,11 +193,7 @@ interface IVec3 extends IVector {
 
 function takesVec<T extends IVector> (vec: T): void {}
 
-// We can also do a lot of the same things we do with values:
-
-function getVectorComponent<T extends IVector, K extends keyof T>(key: K, vec: T): T[K] {
-    return vec[key]
-}
+// We can also do a lot of the same things we do with value arguments, like assign defaults:
 
 function vecLikeOrVector<T extends IVector = IVector>(vec: T): void {}
 ```
