@@ -28,6 +28,8 @@ class SinglyLinkedList {
         }
     } 
 
+    // If this confuses you, see e.g.
+    // https://stackoverflow.com/a/46218959/3757232
     *[Symbol.iterator] () {
         let head: Node | null = this.head
         while (head) {
