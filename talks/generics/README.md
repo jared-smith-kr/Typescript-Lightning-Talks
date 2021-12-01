@@ -179,7 +179,11 @@ class BetterLinkedList<T> {
 }
 ```
 
-Note that every place we reference our List and Node types we have to pass the type parameter. Type parameters are defined and passed the same whether we're talking about functions, arrow functions, interfaces, types, or classes:
+Note that every place we reference our List and Node types we have to pass the type parameter. 
+
+## Syntax
+
+Type parameters are defined and passed the same whether we're talking about functions, arrow functions, interfaces, types, or classes:
 
 ```typescript
 interface IWhatever<T> {
@@ -207,6 +211,8 @@ const printAndReturn = <T>(x: T): T => {
 }
 ```
 
+## Constraints
+
 We can also *constrain* generics, so that they must be compatible with a specific type:
 
 ```typescript
@@ -225,6 +231,8 @@ function takesVec<T extends IVector> (vec: T): void {}
 
 function vecLikeOrVector<T extends IVector = IVector>(vec: T): void {}
 ```
+
+## Error!
 
 Lets try to type the response from a fetch request...
 
