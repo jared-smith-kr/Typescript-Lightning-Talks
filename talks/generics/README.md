@@ -1,6 +1,7 @@
 # Talk \# 4 Generics and Utility Types
 
 * [Playgound](https://www.typescriptlang.org/play?#code/PTAEBUEMBsGtQMSgCygOIFMB2GBOBLAYwGdRIsATUAVQBd9p9aBPCZgBw2IChuRQAogDc8zAEYB7CswDkpAGKQhEgrQygAkljW4h+DAHcIE9kQBcoADL4ssDFWvFaxAIS9C0SMVKPaAOSl1AG9uUDDQdgBXMUZCUBwAD1oLXwCKdQAfeMjoaFDwqJiiUCEYSIwLLEiAWzE8XnDQQgksJ1xIwloVUAAKUuhyypq63AAaeIwklPwnNMzs3NAAXgXoAEpQEMbG2gALGYA6fvLlkrKMfO3QPcPE2lO7y9AAX25X7g8vUgBlGwBzaDMay2ey+TZPQqxUC7DCQCjTWaBUBZKqLFaovJPZqtWjtTrdHoHIlYQLEBH+QIAbQAuhstlcmi0nKBKQAzfC4JzjIkHXBcWjUh6k3kYEScjA9NZPRr4Vm9dmc2h06UMm7EA4wuGnBVOFVXPlOA6slQCSCEXY9EnpZYAPmu+3VcIolsCaylDJeT2eoAa4QAVJTvsxahJoAcmHhIF1cILJeCPdAMPdNfCrDMKdaUTloKc1RrYRQ9aADPtE70U8qPY1mPpoFQU0XGinTimDo8Pa8PTWMHXVl7fWE-knrpAGL01hZflgAUCbHYKGCs4t6VdZb08ymAPxtyZK+NVsJ82iRXBYCZGKcz4Hz3w9DcFndJd0M94eo8ns84C--QHX0HpyV+yeJ1eitCo00RdIJwgjNgiLMDH3uFZ7zhABuIsUKodFAnQt8kw-eIcKAxp0kTNRQPJOZoOUfAqBXbYyIiPkhAebMi2NXBekYsDQAkOU1UrA9QDXF1rSWcTVg2MQ+UgWBG3CESePE9FBKEhS5R6dhmNUtTti00VEKFdJENw3Swm9HtiDgsyrkwoyMEQ+Srk7GzpNhOS1Jcg99JY7D0iLLzPSxFpaFHVoKJgqiLEkUNYTPejGg4rjhx4vj7RmHSPUUpFlMk0B31PUBWRgKynOEjSlIkrBMqEgqz1xcoysCxpXwZOqipK9R+AAKUiZkujIdhOC8dQ9nUZpqlMRMxmLdRiF2CQcgoLAZHuM1jxgQFQDqMgYlGiR8thc10p4Fq3l4fgAHl4AMDAZBEUA-gke4qlqPB1VAb4DpJIwyNIAxVHUTb7SjXjIjWv4wqK7o2n+YhRj4MAYsTch4dAJNCAOUAACV8D+XZaE3GhqnGAIsa0UBuqULxCAIdh7hLUHbvuoHoBk6Ri1UNQsER4tFt7HbsEW-HxjGvk5EIm5p12xaXuGd7hPqmFQD9Zp0j9cYWi2mx7Qufg-RYThiD9UAACFwfKzRoSUIGYN4uVYenNGNGLch7jGxlJoYPBrgOgxIEK6p1FlXmXZAyBsje3AsfkFRjywKMe2YUWYXF0gI+IUNwfwFoLCHHACBIUB5HAAB1dxPG8M2kx0OYAB5wDtIJQH4PxLvAARdYgOQIWiKE7gsU2a7wevG+RPtGkhYpjnA8AB0ZHE8WjXoZ4scBxgH6vaFrwIG7tJcc3RbMarCPMZ9OGeMIdQz0V3ft3lb57Rt2UGAANwFf4sGBzHa-nwEQzzYlpkmUaHB1AtFAH1DA4xyBUHAN8Jo5B0YAMVqyH2TAzDuCZPcYgSlzxbx3ukHoMh9gyA2C3MAjs-gfGwfEPBX4CEj0CD0AArOQ8I-BXojAumAAAgpQQiRhbqILPHyAGEYwacV8DyCuXxGG4D-AudMe99xhCnnEFMg9h64FHvvVYrFcjz2xG0Doy9CTElJFo7eTD0h7xpCfBezI2Qci5KAHkBoBT2XVMxd6Epnyrg0jqPcCVVTX2bCsIJZUPFGhNGaC0Sk7R5idKJDAboApeh9E8AMQYQxhgjLgKMKhYwOMYpo+Rujx4YlzGEgsRYSze3LAWBx1Zaz1lqWpcJ0IHzthfEWbsvYMTEXCEOd2o4cySisToRRvgVEH1UdsESmFtx3GaeEdqDCh7WIUXOf8Tg953hqXCRC-jtitX1PhQqGztHTOUY3QCZ1gIUCoCkyZNiMB72gpswh7yx4hLCAhO41TDgplMrZQ5WFCLpFBdsdZREHkkR7CAiKXy3kfIsDROiRZGI+QMXkD0SUejcSRGlAS8ysoVRylVY+20ZIeSEtlMSVVVkBN6D5ZlVYfI30hQ5O40LPLo2gFZMlNk7J+R5XfGynpJVuVkk1MqOKxXpPheEbEoUbCkEtK8nRu9G7QWRnFYVYQCVEutCSh07KGXqFyhiDY7ViqCouGpS1ywmWGqrO1BqjqhLNXCGcmFFyzz2tKmdB+YAAjkT2KDUUogIieEIOoYRfI0F8iwPGyRdtYGgDmNcMB-11AvwegNdgciPaG3UMWgpQcdAHF5qXcaSCSoHVVtggpNgTb5zwEQNGmcQbuxhKwaofV7g7QmsW+ge0v57DIKAYgnBCCymKGWzB3AbA6GKmmjQAA1DA+JOL0QSEMKOTxmCHu4e8VdeB13qC3TugAzOjJI2AKCkBvbu+ZAAvU99R3iskiKm+gEDQp2GINuwgDcH3c2fZoUD0Y7R9B3WvaiEhaKbFDaAOtIiyCCoOhQA6EdoDPXtl3YgkAg7pSdrNUAuHJ27DOAMLgy7f3-pzmeEQhBrB2EurgGDKhwO7ifS+njnEVivtg-BwgiH0XIbomhywSZSC4lYANMt060G0GOnyAAjuUQ0RJeBeGYKmoqf7OgscekmL6Vb9jTn2SeaAFgqHQQAAq4AkNUGYPym7BRxIdWdpxID+yYEVDGFo7MnJEgadgBwnBRj6qAO0t6ACciXkRZEi9F0Kx5SB11AAAJgAAz5Yce1dLagkj3N9QKoVfzHH3AoFGCOKwAujnuOlgAVpnLAFXznHkKvV0K98eGgEuiYVwEAHTWyGtgf6MIzzMEWtcXASmDrtQjkAo8oDOBFVc9UVTJmANK1BnVHg-AI4dsLljDDhAkHsgSCdGd+BJpbTEKwGwHhIgUH+F3dbSKVM6w9sQPGCdesVH08QQzcQmOmYgSMyzSZrN-Fy7Z3A9mZ24n+M5nbHnwNZCoV5xoxjWtcHYP5wL9w1Pmh6GFp4EXicZdi6QBLyXUu+aizFrLoAcsFaK26krdOyu0G6y8Kr1kGSE6ow10nLXWcHA6y0IXjR2r9cgIN3m11ICsGaKGLGAQjCRoZvmm2M63PB3SBHNK52u3jD+qAAjEh4Cg0zlZr7+uv6LAWpwX9uRWAkZELzOLwN8OEbSsWmwKd1BiEiAwe4Ots6MBYDmo2LgrDyZnRr3tlH-baF9qAaoslbZQ4OxnoDXBeZrcrmjTNTugZDVc1pfAicyC4D+DUbAzgYECMJ0vMgZ51WhVTeA-iytPjeCxnDm4uxpaMDsCdMvnRIibU16R9QkQSc6wELOyM2gJBYwABISCMNR4R1H9ebl4CpgAwsvW+RhzEHADn8MkPfmD2NtM-2RVdeH7i76Ygk6jQAHqRwjA6R5h3YrAJD5CvA-r7ZmaR4MAUBaAxYD58aPqUCkBX4qA2g9BPAX5rwIyNA8gP5P4X4tq-64BOYBzL46DEAqL8B1wAC09BWa7cAgFgx+tEK0VGGA7IOAoAJBi8ZBFBlaICnI3A0EiB-e8a4AYCKizcFCnOjBbiRI3QEh5AUhYCTw6yhgfBd+RBUo7w4ujW20UedYqhA+PQvC4wt6Uo4uYgpwcBphOIahEolhoAJC+AZCNCrQsUBwBGfwPQkABwCQUota9aZ4jatWra4RkRZBxuGeQWL8CmB0P+nQPevEYgbWO69waUEcFa9AhAOQAcM6L8nAmCl+LaYU9gGBuA4GKwQQzwdoN+vQhBzeT+5AL+tIb+c8QAA)
+* [Full List Implementation](https://www.typescriptlang.org/play?#code/KYDwDg9gTgLgBAYwDYEMDOa4BkCWaYByEAJsADwAqAfHAN4BQccYArgEZI4JwBuKSLYAC44FRs3aduAO1AwRufEVKUaAHzjSWSJONYcuzKMB4K8hEuWpwNWnfXH4UMQxABmcVQAo+A4aIAaTTkzJUtVG01tJDgAXiidILBjU2xzZSt1BJj4uyQASlCLFWsGJiZjGBYoaWCAdzSw0h9+QSDZEBgklPzxAF8HJgBzYHgAbQBlAE8AWzYIJAA6GAgJmCgcaSGKFCGAXTgvfLpxCtHq2oByRWLgS-7BuBW1ja3D47Lyyou4AAMbjJeAAktBgAAs8ItfII+vlfg9xAgINJ8FAWAgVlBDtD-BR2iFGrcIrZonFst0TEUMsTsmS8h9Tk8IWgoa1gGScYzwZCOvBcnIuczFskTGSRTwHgN6KBILBEKgMGlpABrYDEG4RT76KRwMHAFDEKnhawknR06KPJwubjuTzULzSSxoEQASRgwCgKA45ABxqoVEKStV6vMmsZSJR8E4+DpwAauBVao19t6jIA9Gm4BNNgh2dGYJgUGAwMBpMQ4M44G4oMiunAUh60OyVunMzMUJsYB3atBSFBGQBBKCeqaLasQGYOp29crlRYNqBNo6Mphj6AAURQCDBU9IcRon1nTBwHl3wAZR6PEZjtF4bLgfTplhXR-ziwNxAdccJ1PtOPyM6Xg+L6wo8ZxVDUcD5giTDXus6KYl4izIY6pDOj+fpjHsF7lNyLIfkhKHTjBcAjPAXY4DERxmImIb4GGs5wcEnRknhix6gaAD8iy8oy3yQbycCcfUQZJqG9q8scIiyPGmzBjcy5MFKwyjHAeDrjMYAwFM7wiPMCz6rUh71uckFsRx5axFZ2QkWRcCTLM8xLM86ybNsuwHEcJyzvxVwJvJ5j3Epjwua8QzvN55RIKpEAsDArB8nAlxeEF5RuNAhzRfAqHsraeE4bOJ6HDlBVHrF8VxXAADUuSWDxApAUJfwgjlfRBPCjUiL8LWWH0HVHgMs7KV8pk9nFCXVUl+SpcNABUDlzAsiw4O6nqYp5gZuh6zjQGQvolP6kVMFlzHyBhB2RHkrFChZjJ1BC0XFXIpVMFMODAEg5a8Zegn8p09WdIyg3AeIH6HMhPFOkaB1YYGeFHZoTprlAm7bme+4I8ep7mfqxAveUOUA4lOMGiBYG4TduNPqQQOpj5o1MngJGkFl7IOtDmRw8yCMneKHM0lduQWrOJ0INUxjSGd+2ZJdpLxCTxB3Q9bNi8OpYwPjRVeKrEt8tZ9JwGwxgoMqL5azr6txPr+NY4c4o2+U4pE2SFuS0TL5KXAH1NpjR4K+aZoZlWOCLvAKBlnAyJIDpH3ADM6seyDjVG-qpuXsNs7ii74sJ5eruJfnztA+TvmM2gJHIMibOBv5Yn0aUfEM7XdEwIs7jePlJFx1pOlecZ-tC-Y9MQbUeGSg4MrQPAyDoJgAAisUcFMzfJjQcilsQmAr+JB6OF21qRx43g5ehW2et6e3pH6AYiAvkjL3JdcwAx5RMfmsYNHfS-b-XVDLoOw4UCjnHJOE+gFZzzhMI2YAikjzI1RjuHKGNjKFVPCVX2jFkQ3jvH4B81NgCJ2OuYd8xBPwyXOpkFofgAKJ2BkNOmI0R5QXMLZVSFEqKBi-tHH+z8G6YMjKda6kILLcW+own4glhLkK4Q-Wiq8vydCkiJGRPDYHDTsgtJyyxViuS2DsfYEVjKl0uCox+LcZqPDBoRSGaF+bUFhiIeGxkT7wK3IgywyCzbY0pgaB2hNfpl3YrjROCthQpHwWTF8A9EY03oSXBmY9griBZqMNm0g7E3zLjzVSfMKECzljZEWql84ZNlmaeWPjFaznupRFWOdJaa1PPnK2g8CiG2NmnI85t6l61yA7LW9sMGOxSM7eIhcxGNW6WrN2klEA9KJmE0U8RxS0K9kgH2KC-aVIDjEIObgQ4xnDuWKOMdorx0lrQ8ms4U4m0iZeLOYyekvmaY86ZrdBLF0bkwxJSd5RV10nAUxcid4I1LkCgK+A25uA7syQCAwBhAA)
 
 ## Everybody's Favorite Interview Topic: Linked Lists!
 
@@ -26,17 +27,6 @@ class SinglyLinkedList {
             this.head = first
             rest.forEach(node => this.add(node))
         }
-    } 
-
-    // If this confuses you, see e.g.
-    // https://stackoverflow.com/a/46218959/3757232
-    *[Symbol.iterator] () {
-        let head: Node | null = this.head
-        while (head) {
-            yield head
-            head = head.next
-        }
-        yield null
     }
 
     get tail (): SinglyLinkedList | null {
@@ -54,30 +44,23 @@ class SinglyLinkedList {
     }
 
     delete (n: Node): void {
-        let prev = null
-        for (let node of this) {
-            if (node === null) break
-            if (node === n) {
+        let prev: Node | null = null;
+        let current: Node | null = this.head;
+        while (current) {
+            if (current === null) break;
+            if (current === n) {
                 if (prev) {
-                    prev.next = node.next;
+                    prev.next = current.next;
                 } else {
-                    this.head = node.next
+                    this.head = null; // first and only element
                 }
-                break
-            }
-            prev = node
-        }
-    }
 
-    contains (n: Node): boolean {
-        for (let node of this) {
-            if (node === null) return false
-            if (node === n) {
-                return true
+                break;
             }
-        }
 
-        return false // Just to appease the compiler, we shouldn't actually be able to reach this
+            prev = current;
+            current = current.next;
+        }
     }
 }
 ```
@@ -129,15 +112,6 @@ class BetterLinkedList<T> {
         }
     } 
 
-    *[Symbol.iterator] () {
-        let head: BetterNode<T> | null = this.head
-        while (head) {
-            yield head
-            head = head.next
-        }
-        yield null
-    }
-
     get tail (): BetterLinkedList<T> | null {
         if (this.head?.next) {
             return new BetterLinkedList<T>(this.head.next)
@@ -153,30 +127,23 @@ class BetterLinkedList<T> {
     }
 
     delete (n: BetterNode<T>): void {
-        let prev = null
-        for (let node of this) {
-            if (node === null) break
-            if (node === n) {
+        let prev: BetterNode<T> | null = null;
+        let current: BetterNode<T> | null = this.head;
+        while (current) {
+            if (current === null) break;
+            if (current === n) {
                 if (prev) {
-                    prev.next = node.next;
+                    prev.next = current.next;
                 } else {
-                    this.head = node.next
+                    this.head = null; // first and only element
                 }
-                break
-            }
-            prev = node
-        }
-    }
 
-    contains (n: BetterNode<T>): boolean {
-        for (let node of this) {
-            if (node === null) return false
-            if (node === n) {
-                return true
+                break;
             }
-        }
 
-        return false
+            prev = current;
+            current = current.next;
+        }
     }
 }
 ```
