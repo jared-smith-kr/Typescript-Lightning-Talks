@@ -283,3 +283,5 @@ I won't cover these, but here's an (incompletel) list with descriptions:
 * `InstanceType<Type>` extracts the instance type of a class
 * `ThisParameterType<Type>` extracts the type of `this` for a function, useful with e.g. `Function.prototype.call`
 * `OmitThisParameter<Type>` removes `this` type from function, useful with `Function.prototype.bind`
+
+## API Rant if time
