@@ -1,6 +1,6 @@
 # Talk \# 5: Mapped and Index Types
 
-* [Playground](https://www.typescriptlang.org/play?#code/PTAEBsFMBcGdQJYFsAOUmQHbVAQ1NAJ4qQEAWpkAHtAE64DGc5pRJoA9gGZ6gBuucAFdSXWhyR5MnAEYArSEzw5cAKBCgUuWtAQMh4baADWkQgDpQAJUgYkMyLU5CnAcw4cAJqDEIs3gANTQm4An3FJaDJcHGhBYwB+UABBTG9XLEc9WHUwMQkIXFhY5EgkgAlHSAByeCjSDMwshgJiVmicajpGZnrQACo2SH7OHj6BYUhc0d5jTA4Ad2kOeUUcFHESHUIALlVVIdAAFTaAeS4ABU3HIgAeI9Au-3gAbwBfABpQAGlHmmeTGZuMcAHygAC8xwA2t8ALoHNqgADKZA4Bk8ACFIEi6AhMK4Icczpdrttbi88DtQMVaHjXF8ZFTMEJ7I5QJ9QNVcNUQfsNDY7A4nNAFhwCPF4Lh3KAFqRPAhYPpYLBIN4+vKuFwqpgGJB4A4RZAsAMhiMGBxsF0chpcGkBhMRGaLdArZYjhRQAEnmlYGFgqLaN4FZwmjMohwVTKLcZCCG9eQYhAEKZpgEhqFQA5onx4znaLGNVraFhoOAC5ASGk6SGWKBzZaaJZ+v0ACJomRl5sDISYLgcHQ9mKQTsfaYLCjSIQqoPSfCHesumgDb2eWAjQSwMVZ3A5+CF7Wl8uV+X4mvjmAUJz96bzHAIaC1TOQatT1WIWegRrNOvOroy+9kLwPYIBarQkOYfJgA6pALl0+wMIYyqgAAYh4oAvKooBYZoQgdnolKgMyrJOJCADMqhvPBiHwBiRgrvAqFiu8oAaLRbgwJK4DgDheEMMAGwcC6TBvgJWy6PGwKMZBYEwb+S4ABQyEUegAJT7HiLq0FwjCkAAkox6GYdhjLUri+IUeplpaTpoC6Wxfwuj6tkGcxGh2UY0Scdxok3H48DAvpHjSfOck4PJuCeAIOqqmphwAKqEly1SgAAPpyMjJWl1QMNUCLsEcuCmLAcX3A5AJxWCkIYdhBFHBZqj1sUPgeFSBVFSVSWVehBFJeyWEaGQQhkAk0lIkaXx4jJAC0AbgN41T0clGC2vA-TBkUsAIK4mC4B2rAcP0lipN4gjccC+CwEInieFgo4aGiTiygggamUImqmdovRikghWkCqmAqm6HrULgqBQGGHo+dsMkOfQTDXm5n47qQiZcM9TU-UV1JYCqVLnsWMqkNmpABL89GAiEPBHGE46JrKoDLdICqpt8YRrZKypbTte0EAdnrBMC1MymQeiAX2woeocAQUrgVI0nSDJMiyQrsmEzMaAEvVZRlYS2mqHoWmW5B0hzm3bbt4PQGKUSJto7R-WZrjwL1evpblGjycWgpsrK1QE8UCBceK4DGNWu1orEbSwCpEHTO6pB4jdVDVgERwwrCYSwKi6JPpoxbQEQ77QEI94IDmVJyFOODgMmCfSNBM39nNwtVIT0wMLa75J1IsgKEoCwAbwUOF8E77TbN3j0x3TNpNQvCDG0IwD1EeDTHMizSMPsbBJYADq-bGPA4t4LQ9CxkMdQtfshwAKI0HD0DJKfuCECcJCleTtqEFCsJdWnRFCnhI1HAMgPDgCfiRUAUI6AiC+NpcAKp4SHBRGiOaWIMRgMJHfboTAIEvzfpAW46YeCgI4OA0+vI8qkGwQ-ZC6NoBHCEGgSABCP7-Ccl-H+f8oQAAYkGIhQeiLEAA5ZWbJIQ0J6HQ2gxRGHMNYVCABjgvjy3xL-aSu8YKd1fLWFYfd1ikkLlnfsNs7Q11MGPAAUjuIoDBaQoE6DmGe48m6eEsKcJo7cLS6gcQmHA5oMDwCYbwcAgkW7SHlIqKcm1TwX0QHUD0CAbrYHvLGYctgSycCvFsGIIFMDTGPnONoVJj54mKLaXUoAeHxNrEkksqTHjoEyYU66pdQIcDzIRMRMivgAEYan1GmHUlJhd0kYGwM1JwSADC6DQHoXJ7TOlKJ6bU5JuhC5cB7EwPJNSAhUAhGCKgAQ7pgFdpuEMe8tERMgGjUMF1kDMNsmshpUtDi6WeXcI4f9jmZiEDgKencNwcGmDoqIwYfooBIGqREdS5zfV+j3YZ6zz6ImPnotYsA9hUKefUz5ZUnLvC6tVbCUJR6TQFlTWErVSVmHhJRaYAA9JlxwRbwGMTnBwecYBGO6FtMg0BxYLG0J4Ep-Ye7oqUFLIWrtTr8zMGEOJeJph9GAqBIIQIqZhAhXKwgCqxSpxpYQDOscNDxwJnbAgoplC4hkH8iSPBh5+T8XWTunKkBeAQGjN8k16iRghVCmSmLUzFgiobXVUhvAcAcXkwQoB5IBASAEGOoBNF-A2HqBJwYpxh00MIfyUy8RTmpFzT0ABqYAU0AiWAADIwEfO4aYuAKARQjaAUFFBIxW0QGDDJEy+gBAuJ9BAggfkBBsAARxLsWTwus7RjsgKGzAZYFVR2cDI4cu4sWHAALKEBsIussbDHKrnQm8IlRksKlpDZ4MNUCyXSApccKl0Jgh0uvoiXdg6dDDvAEegEhLCTEqwoasej6jiwlLQkalr76o7r3ZASdz1VR-oJWewDF671mFAxqp9U0oMvtpfVDQzZhGnCODfLsnrQAhCEJwJA95axm0wF8PoASUCBzZBtFk8YAilqrRouUFpqg4GJrzUAxZ5ZKAeiqKAu4xMCFpBbeMz56i0C+ACyckYa6aQ3KASuTVzGkHpvKTwY5B4BB4Xq7tzDxmdHvj0asfQ0YyMjuwfIkg5xMKgFuxEeDCC1vxFEFDJ7OG-0JGnaoUBAtkGqPCaYYrIBOIZv2BomR6BcUINigLrggsPHJhSKLOWyBK2IuybhkWsBFdi6Na2HRHz+rfK7ROc84njlFoTF1mn9oM1tAgFABghytu6ADcWkgJXQC+NoM+k20jKq86wKOEEgA)
+* [Playground](https://www.typescriptlang.org/play?#code/PTAEBsFMBcGdQJYFsAOUmQHbVAQ1NAJ4qQEAWpkAHtAE64DGc5pRJoA9gGZ6gBuucAFdSXWhyR5MnAEYArSEzw5cAKBCgUuWtAQMh4baADWkQgDpQAJUgYkMyLU5CnAcw4cAJqDEIs3gANTQm4An3FJaDJcHGhBYwB+UABBTG9XLEc9WHUwMQkIXFhY5EgkgAlHSAByeCjSDMwshgJiVmicajpGZnrQACo2SH7OHj6BYUhc0d5jTA4Ad2kOeUUcFHESHUIALlVVIdAAFTaAeS4ABU3HIgAeI9Au-3gAbwBfABpQAGlHmmeTGZuMcAHygAC8xwA2t8ALoHNqgADKZA4Bk8ACFIEi6AhMK4Icczpdrttbi88DtQMVaHjXF8ZFTMEJ7I5QJ9QNVcNUQfsNDY7A4nNAFhwCPF4Lh3KAFqRPAhYPpYLBIN4+vKuFwqpgGJB4A4RZAsAMhiMGBxsF0chpcGkBhMRGaLdArZYjhRQAEnmlYGFgqLaN4FZwmjMohwVTKLcZCCG9eQYhAEKZpgEhqFQA5onx4znaLGNVraFhoOAC5ASGk6SGWKBzZaaJZ+v0ACJomRl5sDISYLgcHQ9mKQTsfaYLCjSIQqoPSfCHesumgDb2eWAjQSwMVZ3A5+CF7Wl8uV+X4mvjmAUJz96bzHAIaC1TOQatT1WIWegRrNOvOroy+9kLwPYIBarQkOYfJgA6pALl0+wMIYyqgAAYh4oAvKooBYZoQgdnolKgMyrJOJCADMqhvPBiHwBiRgrvAqFiu8oAaLRbgwJK4DgDheEMMAGwcC6TBvgJWy6PGwKMZBYEwb+S4ABQyEUegAJT7HiLq0FwjCkAAkox6GYdhjLUri+IUeplpaTpoC6Wxfwuj6tkGcxGh2UY0Scdxok3H48DAvpHjSfOck4PJuCeAIOqqmphwAKqEly1SgAAPpyMjJWl1QMNUCLsEcuCmLAcX3A5AJxWCkIYdhBFHBZqj1sUPgeFSBVFSVSWVehBFJeyWEaGQQhkAk0lIkaXx4jJAC0AbgN41T0clGC2vA-TBkUsAIK4mC4B2rAcP0lipN4gjccC+CwEInieFgo4aGiTiygggamUImqmdovRikghWkCqmAqm6HrULgqBQGGHo+dsMkOfQTDXm5n47qQiZcM9TU-UV1JYCqVLnsWMqkNmpABL89GAiEPBHGE46JrKoDLdICqpt8YRrZKypbTte0EAdnrBMC1MymQeiAX2woeocAQUrgVI0nSDJMiyQrsmEzMaAEvVZRlYS2mqHoWmW5B0hzm3bbt4PQGKUSJto7R-WZrjwL1evpblGjycWgpsrK1QE8UCBceK4DGNWu1orEbSwCpEHTO6pB4jdVDVgERwwrCYSwKi6JPpoxbQEQ77QEI94IDmVJyFOODgMmCfSNBM39nNwtVIT0wMLa75J1IsgKEoCwAbwUOF8E77TbN3j0x3TNpNQvCDG0IwD1EeDTHMizSMPsbBJYADq-bGPA4t4LQ9CxkMdQtfshwAKI0HD0DJKfuCECcJCleTtqEFCsJdWnRFCnhI1HAMgPDgCfiRUAUI6AiC+NpcAKp4SHBRGiOaWIMRgMJHfboTAIEvzfpAW46YeCgI4OA0+vI8qkGwQ-ZC6NoBHCEGgSABCP7-Ccl-H+f8oQAAYkGIhQeiLEAA5ZWbJIQ0J6HQ2gxRGHMNYVCABjgvjy3xL-aSu8YKd1fLWFYfd1ikkLlnfsNs7Q11MGPAAUjuIoDBaQoE6DmGe48m6eEsKcJo7cLS6gcQmHA5oMDwCYbwcAgkW7SHlIqKcm1TwX0QHUD0CAbrYHvLGYctgSycCvFsGIIFMDTGPnONoVJj54mKLaXUoAeHxNrEkksqTHjoEyYU66pdQIcDzIRMRMivgAEYan1GmHUlJhd0kYGwM1JwSADC6DQHoXJ7TOlKJ6bU5JuhC5cB7EwPJNSAhUAhGCKgAQ7pgFdpuEMe8tERMgGjUMF1kDMNsmshpUtDi6WeXcI4f9jmZiEDgKencNwcGmDoqIwYfooBIGqREdS5zfV+j3YZ6zz6ImPnotYsA9hUKefUz5ZUnLvC6tVbCUJR6TQFlTWErVSVmHhJRaYGI-kylwPeXgSA8R-MgAAQlAAATTRNSFl3gABExQ3o8ABREsUy9AJpjaGEG2-yrnVBwJ4aVg8AgaUcNpXUARpiu10tUSQGwYBGJcHpaoOZsbGk3BgMFp5zHtGDDKou2qdKwC5ZZTSOq9IXFOJY04hkao0t2KZWkaiqRf3qhoXleovhgvgMGDuXE3yd0TnPM2O1i4EyGF8V29RYzT1zq+Seg84n9H7CMIZVkfWwEsOURYkA8xfB7I6hmuBIVvjiQWk+pB+hdC9sOQgIwa7spdJ4L4jNqz1EjKdApLLuIuoCSgQOkApq6AwI8U+-ZMVerdZU5CC7en3DBMSrCIaqQUuOFSqQhB6pausgehdAAmINJLghUi1m7G9Ub6UPp9ShBdpE33no-WGukN7VGuCMqBswStiI3uWdGsA5hUP5pFkfBd8AXX4H6LQHsG7hhbvELQPY-6bKHsDgAFhA1AsDUHIOO3qsAgilHwA0aqm8AA3A1C0TUZCElwOYPsHAuMsTAFBnlt5QA9hurc1UnrGpkMgOYUJrhFLmGLCQGI8lSIqRUmJjQy7V1OGDJtKA2BPVx0vCjHNoplC4hkJy-yPBh5+T8XWTuDgGZeAQGjN8k0Z2kAhVCmSu6NbFgiobQgus7QcAcXkwQoB5IBASAEGOoBNF-BNUhBNMmYkEnwGgKcWSGYcvgJmz0ABqYAU0AiWAADIwEfO4fVFAIpSG8KCigkYraIDBhkiZfQAgXE+ggQQPyAg2AAI4l2LJ4WLgQbBRcwGWBVUdnAyOHLuLFhwACyhBltqtW4QNhjlVzoTeESmDoAquReO0bENY8r1HBvWnYIdLr6IgO6NnQ43wBnYBISwkZ66NmGe0CSlVWEjUo+-Vfbh3ICzeeqqQHBKrsg5u098lkPr1TRh9COH9KNDNmEacI4N8ux+dACEIQnAx21kzfGj0xmoBOA2iyeMAQqv1Y0XKC0KrQDE15qAYs8slAPRVFAXcIuBC0gtvGZ89RaBfElfl0gNdNIblAJXJqbb6byk8GODVPCFVigeU0iZA6ejTo9GjGRkd2D5EkHOJhUBduIjwYQJr+Ioho4u5w3+hI07VAs64KI1R4TTH7I8JxPmCZfnoFxO9hwffh7IP714EAsDp-gyrDHkIQ9h4j1HjQSJrYdEfCF1Ndp037LieOUWhNPOTl6-CzACAUAGCHJ1gg9AAbi0kOipgebn6EDzWkaYxdHkXwgkAA)
 * [Recording]() \[talk starts at\]
 
 So waaay back in talk #2 I mentioned that when defining types `interface`s were *usually* preferrable to `type`s and went over some reasons why, including some things that `interface`s can do that `type`s can't (like use the `this` keyword).
@@ -46,7 +46,7 @@ const foo: TakesU<'a'> = { a: 'a' } // huh?
 
 See, in type-world 'extends' means *is assignable to*. And all of a sudden, our weird stuff starts to make sense. The example of the property type extractor I gave at first makes sense: where we have `K extends keyof T` what we mean is `K` *is assignable to* `keyof T` which for the type `{ a: string, b: number }` is `'a' | 'b'` and the only things assignable to that are the strings 'a' and 'b' (remember we're still talking about types). 
 
-## Index Types
+## Indexing Types
 
 The indexing `T[K]` should be pretty intuitive: just like in value-world where we can index an object with a property key in type-world we can index a *type* with a known property key. Works for array types too:
 
@@ -79,6 +79,53 @@ type Identity<T extends {}> = {
 ```
 
 This should be pretty straightforward: for an object type `T` and all `key` types in the union `keyof T` map `key` to `T[key]`.
+
+## Index Signature Types
+
+But wait a minute! You said "stuff we can do with `type` that we can't do with `interface` and I'm pretty sure I've seen something like this with interfaces!
+
+```typescript
+interface IPOJO {
+    [key: string]: any
+}
+```
+
+Yes, this is called an [index signature type](http://www.typescriptlang.org/docs/handbook/interfaces.html#indexable-types), and they can be used with types *or* interfaces. However, unlike mapped types they are *extremely* limited:
+
+* The key type must be `string` or `number`. You can't use it with a narrower context like a union of literals or `keyof T` or anything like that.
+* The set of properties is therefor unknown, and this can *break type safety*
+* Values must all be of the same type.
+
+Meaning these all fail with compile-time errors:
+
+```typescript
+interface Fail1<T> {
+    [key: keyof T]: any
+}
+
+interface Fail2 {
+    [key: 'a' | 'b']: any
+}
+
+interface Fail3 {
+    [key: string]: string
+    [key: number]: number
+}
+```
+
+...and this fails with a *runtime* error:
+
+```typescript
+interface Fail4 {
+    [key: string]: string
+}
+
+const a: Fail4 = {};
+const b = a.foo; // string! not undefined!
+console.log(b.repeat(3)) // compiler is silent!
+```
+
+I'm not saying index signature types are *bad*, they have their place, but be aware of the caveats. By contrast, mapped types can *only* be used with the `type` keyword, and unlike index signature types they describe a complete (not open-ended) shape for an object type: `type Succeeds1<T> = { [key: keyof T]: any }` will *only* have the keys of type `T` as object properties as far as the compiler is concerned.
 
 ## Property Attribute Modifiers
 
@@ -114,3 +161,22 @@ type Length<T extends { length: number }> = T['length']
 ```
 
 So that's mapped and index types which we can use to manipulate and transform object, array, and tuple types.
+
+## Putting it to Bed
+
+So now we can fully answer the question that got asked waaaay back when about interfaces vs types. Lets summarize:
+
+### Advantages of Interfaces over Types (see notes for talk #2):
+
+* Can use a properly polymorphic `this` keyword as a type, e.g. the return value of a method in a fluent interface
+* Open to extension: you can monkey-patch existing or built-in or 3rd party interfaces, e.g. [extending window to declare a global](https://mariusschulz.com/blog/declaring-global-variables-in-typescript#augmenting-the-window-interface)
+* Better error warnings about property name conflicts in intersection types
+* For TS < 4.2 unlike types they are not silently inlined leading to large bloat in .d.ts files
+
+### Advantages of Types over Interfaces:
+
+* Can be used to create mapped types, most (all?) utility types **cannot** be implemented with interfaces
+* ...which follows then that any time you need to *manipulate* another type, you want to use `type` not `interface`
+* Can be used to declare things that are not object types, like a union of literals.
+
+So if your use-case doesn't involve anything related to the differences above, it probably doesn't matter. There you go.
