@@ -82,7 +82,7 @@ This should be pretty straightforward: for an object type `T` and all `key` type
 
 ## Index Signature Types
 
-But wait a minute! You said "stuff we can do with `type` that we can't do with `interface` and I'm pretty sure I've seen something like this with interfaces!
+But wait a minute! You said "stuff we can do with `type` that we can't do with `interface`" and I'm pretty sure I've seen something like this with interfaces!
 
 ```typescript
 interface IPOJO {
@@ -171,12 +171,12 @@ So now we can fully answer the question that got asked waaaay back when about in
 * Can use a properly polymorphic `this` keyword as a type, e.g. the return value of a method in a fluent interface
 * Open to extension: you can monkey-patch existing or built-in or 3rd party interfaces, e.g. [extending window to declare a global](https://mariusschulz.com/blog/declaring-global-variables-in-typescript#augmenting-the-window-interface)
 * Better error warnings about property name conflicts in intersection types
-* For TS < 4.2 unlike types they are not silently inlined leading to large bloat in .d.ts files
+* For TS < 4.2 unlike types they are not silently inlined (which leads to large bloat in .d.ts files)
 
 ### Advantages of Types over Interfaces:
 
 * Can be used to create mapped types, most (all?) utility types **cannot** be implemented with interfaces
-* ...which follows then that any time you need to *manipulate* another type, you want to use `type` not `interface`
-* Can be used to declare things that are not object types, like a union of literals.
+* ...which follows then that any time you need to *manipulate* another *type*, you want to use `type` not `interface`
+* Can be used to declare things that are not object types, like a union of primitive literals.
 
 So if your use-case doesn't involve anything related to the differences above, it probably doesn't matter. There you go.
