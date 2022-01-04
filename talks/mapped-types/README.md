@@ -187,4 +187,4 @@ So now we can fully answer the question that got asked waaaay back when about in
 * ...which follows then that any time you need to *manipulate* another *type*, you want to use `type` not `interface`
 * Can be used to declare things that are not object types, like a union of primitive literals.
 
-So if your use-case doesn't involve anything related to the differences above, it probably doesn't matter. There you go.
+If you're more into visuals then [this graphic](https://github.com/typescript-cheatsheets/react#useful-table-for-types-vs-interfaces) has you covered. So if your use-case doesn't involve anything related to the differences above, it probably doesn't matter. There you go.
