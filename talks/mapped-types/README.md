@@ -100,7 +100,7 @@ Meaning these all fail with compile-time errors:
 
 ```typescript
 interface Fail1<T> {
-    [key: keyof T]: any
+    [key: keyof T]: any // key in keyof T also fails
 }
 
 interface Fail2 {
@@ -126,6 +126,14 @@ console.log(b.repeat(3)) // compiler is silent!
 ```
 
 I'm not saying index signature types are *bad*, they have their place, but be aware of the caveats. By contrast, mapped types can *only* be used with the `type` keyword, and unlike index signature types they describe a complete (not open-ended) shape for an object type: `type Succeeds1<T> = { [key: keyof T]: any }` will *only* have the keys of type `T` as object properties as far as the compiler is concerned.
+
+Also be aware that neither mapped types nor index signature types support named properties. If you want to have some specific properties in addition to the mapped or index signature catch-all use intersection types:
+
+```typescript
+type SomeMappedStringAndANumber<T> = {
+    [key in keyof T]: string
+} & { a: number }
+```
 
 ## Property Attribute Modifiers
 
