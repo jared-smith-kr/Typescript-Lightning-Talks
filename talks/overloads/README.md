@@ -16,14 +16,16 @@ function doTheThing (x: number): string {
 }
 ```
 
-But that of course *doesn't* work. Overloads in Typescript follow some rules:
+But that of course *doesn't* work. This has to compile down to Javascript, and if the only difference is the type then you will get an error for redeclaring the same function. The compiler *could* create multiple separate functions with different names and a another the actual exported name and conditional checks to decide sub-function to delegate to, but the Typescript team really doesn't want to be in the business of layering custom dispatching machinery on top of Javascript.
 
-1. They should proceed in order from less complex to more complex
-2. You can only have **one** implementation body of your overload function that **must** be able to account for all of your overloaded signatures
-3. Following from #2, the implementation signature **must** be compatible with **all** of your overloads
+Overloads in Typescript follow some rules. Like the rules of say, React hooks they may seem arbitrary at first but after working with them you come to understand and appreciate their logic. The rules are:
+
+1. You can only have **one** implementation body of your overload function that **must** be able to account for all of your overloaded signatures
+2. Following from #1, the implementation signature **must** be compatible with **all** of your overloads
+3. They should proceed in order from less complex to more complex
 4. Exercise taste in how many you give, the compiler has to resolve any invocation of your function to a *specific* overload
 
-So when should you use overloads? Whenever you have a function that does different things based on it's input. Imagine we're wrapping the Date constructor. The Date constructor can take nothing, an ISO 8601 formatted string, or an integer timestamp, or a series of integers denoting the year, month, day, etc. So how would we write that in TS?
+So when should you use overloads? Whenever you have a function that does different things based on it's input. For a basic example, imagine we're wrapping the Date constructor. The Date constructor can take nothing, an ISO 8601 formatted string, or an integer timestamp, or a series of integers denoting the year, month, day, etc. So how would we write that in TS?
 
 ```typescript
 function makeDate(): Date
@@ -59,7 +61,7 @@ function makeDate2(strOrTsOrYr?: string | number, ...args: PositionalDateArgs): 
 }
 ```
 
-Note that although the compiler will ensure type-safety by resolving to a *specific* overload, your code will still have to figure out which one you got in the function body:
+Much easier to read. Note that although the compiler will ensure type-safety by resolving to a *specific* overload, your implementation code will still have to figure out which one you got in the function body:
 
 ```typescript
 function makeDate2(): Date
@@ -83,7 +85,7 @@ function makeDate2(strOrTsOrYr?: string | number, ...args: Parameters<Positional
 You can mix in generics, different return types, etc:
 
 ```typescript
-function foo(): never
+function foo(): never // Note you don't actually need to write this one, it's implied
 function foo(x: string): string
 function foo<T>(x: number, y: T): Promise<T>
 function foo<T>(x?: string | number, y?: T): string | Promise<T> {
@@ -99,15 +101,26 @@ function foo<T>(x?: string | number, y?: T): string | Promise<T> {
   }
 }
 
-try {
-  foo()
-} catch (err) {
-  console.assert((err instanceof Error && err.message) === 'No arguments to foo!')
-}
-
+const res = foo()          // Error
 const res1 = foo('hi')     // string
 const res2 = foo(3, true)  // Promise<boolean>
 
 foo(3)                     // Error
 foo('hi', true)            // Error
+```
+
+So lets do a real-world example. I had a couple of coworkers come to me for typing help a few weeks before the holidays. The problem description looked like this:
+
+```typescript
+const WrappedComponent = withHoc({ requiresProp: true })(Component)
+<WrappedComponent /> // error: prop missing from component 
+
+const WrappedComponent = withHoc({ requiresProp: false })(Component)
+<WrappedComponent /> // no error, this is fine
+```
+
+They wanted to encode the configuration in the type system so the requiredness of the prop for the wrapped component was checked at compile-time. My solution involved, you guessed it, overloads!
+
+```typescript
+
 ```
