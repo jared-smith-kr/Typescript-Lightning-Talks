@@ -35,7 +35,7 @@ const MyAwesomeComponent: React.FC<{
         reputation?: number
     },
     children?: React.ReactNode,
-}): React.JSX.Element => {
+}): React.Element => {
     const [someState, setSomeState] = useState(null);
     return (<div onClick={React.useCallback((evt: React.SyntheticEvent) => { setSomeState('clicked'); props.onClick(evt); }, [])}>
         {props.user.userName + someState}
@@ -67,7 +67,7 @@ const MyAwesomeComponent: React.FC<{
         reputation?: number
     },
     children?: React.ReactNode,
-}): React.JSX.Element => { // <- This is implied by the FC annotation on MyAwesomeComponent
+}): React.Element => { // <- This is implied by the FC annotation on MyAwesomeComponent
     const [someState, setSomeState] = useState(null);  // <- useState is generic, no need to pre-seed with null and will fail on set
     return (<div onClick={React.useCallback((evt: React.SyntheticEvent)) => { setSomeState('clicked'); props.onClick(evt); }, [])}>
         {props.user.userName + ' ' + someState} // <- user sees 'null' FOUC
