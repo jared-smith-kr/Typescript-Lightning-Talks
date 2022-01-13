@@ -102,7 +102,7 @@ interface MyAwesomeComponentProps {
 
 // N.B. the type of props and the return type of the function
 // are covered by the FC annotation, no need to repeat.
-export const MyAwesomeComponent: FC<PropsWithChildren<MyAwesomeComponentProps>> = ({
+export const MyAwesomeComponent: FC<MyAwesomeComponentProps> = ({
     someThing,
     onClick,
     user,
@@ -136,7 +136,7 @@ The main types relating to props are:
 
 * `React.ReactChild` either an `React.ReactElement`, string, or number.
 * `React.ReactNode` this is the **correct type for `children`**: includes `React.ReactChild` but can also be null, undefined, a fragment, or a portal.
-* `React.PropsWithChildren` a helper type for adding children to your props.
+* `React.PropsWithChildren` a helper type for adding children to your props. `React.FC` also adds `children?`, but if you're not using that use this.
 * `React.PropsWithRef` same thing for `ref`s.
 
 If you have some special case that would necessitate using something other than the above where one would normally use one of those, *please document why in a comment*.
