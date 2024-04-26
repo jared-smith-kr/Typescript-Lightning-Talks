@@ -149,7 +149,7 @@ We can see that the method definitions for `Maybe` and `Promise` are *really* si
 
 ## Why Does Any of this Matter?
 
-Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math GhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember how we got here with the utilities to extract Promise/Set/Array types?
+Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math PhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember how we got here with the utilities to extract Promise/Set/Array types?
 
 If you have a shared interface for things, then you can write a suite of functions to work on the *interface*. This means they're open and extensible: if somebody makes a new thing that implements that interface your function will work on it *without you needing to do anything to the functions*. Consider the `Symbol.iterator` protocol in Javascript! Consider HOCs in React!
 
