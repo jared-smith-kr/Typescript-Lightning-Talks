@@ -108,6 +108,8 @@ If you've ever heard some big-brain nerd-speak about HKTs, now you hopefully hav
 
 ## Before We Get Started, Does Anyone Want to Get Out?
 
+<img src="../../resources/cap-elevator.jpeg" />
+
 If you've ever heard an argument about the big M-word in Typescript you may have stumbled across mention of this
 concept: expressing Monads in full generality requires these HKTs. To wit, lets look at an example:
 
