@@ -77,12 +77,6 @@ type GetPromiseType<T> = T extends Promise<infer U> ? U : never;
 type Num = GetPromiseType<Promise<number>>; // number
 ```
 
-...and lets use the same principle to fix `DoesSomeLogic`:
-
-```typescript
-type BetterDoesSomeLogic<T> = T extends Promise<infer U> ? 'a' : 'b'
-```
-
 In fact we can use the same pattern from `GetPromiseType` to extract any generic type:
 
 ```typescript
@@ -90,11 +84,11 @@ type GetArrayType<T> = T extends Array<infer U> ? U : never;
 type GetSetType<T> = T extends Set<infer U> ? U : never;
 ```
 
-Wow, these look awfully similar both to `GetPromiseType` and each other. Can we extract this pattern?
+Wow, these look awfully similar both to `GetPromiseType` and each other. Can we abstract out this pattern?
 
 ## HKTs
 
-The short answer is no, or at least not in Typescript. Lets take a look at what that might look like:
+The short answer actually turns out to be no, or at least not in Typescript. Lets take a look at what that might look like:
 
 ```typescript
 type InferGenericType<T> = T extends (infer U)<infer V> ? V : never;
