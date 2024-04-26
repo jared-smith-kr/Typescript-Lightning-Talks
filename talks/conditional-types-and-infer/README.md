@@ -1,4 +1,4 @@
-Talk \# Conditional Types and Infer
+# Talk \#8 Conditional Types and Infer
 
 * [Playground](https://www.typescriptlang.org/play/?#code/C4TwDgpgBAogjgVwIYBsDOAeAggGigIQD4oBeKLKCAD2AgDsATNAqAfhetseYvYoC4odCADcIAJyiDhY8QG4AUKEhQAKhDTBSsRKkx0EAWwBGEvAZMTCcqAHpbQo6fFLw0AGJIAlim3xk6BgWznia4l50AObWdg4yEgoKAGYIdADGwF4A9nRQSVlZGKp4AKqEABRUgsVQIIIleEjG1ZQ09Ew6AZg1ZWxQYRGRUo6W4gCUgiJZXgxQAN4AvskF5QDMeABMeADkSNtjNlBH9lBgSGhoy1nl2wAWXtt4AKx4AIwHR7Gn55f51+tQLZQd6HT5fJLeFBXG73R5QF5QXb7GwnCE+RLUMBZcRaZTQACySDAAHkklgUCgsIxiXQUCAANIQECYBRHVStLgdAByOS5CApTRQEAwqQA1nQsgB3OiEHCsqD0gDKHPazAGUSgAB8Rs4tf0QCYslDiGRRUyskk1CruArlexyuzOKqoAAlCBpbEMDBKxp0EDEdjs6SiCRjYbxFyuFQANVQM0ZzO0SL122M2yjHgK2jm8qQ0icCSOzX6wHCUQUSwzag0wA22kJJLJFKpDBpdITmHcBTwsZQ8aZaGIJy7WSrnh8dbIDdJ5Mp1NpDIHGAACl40qKMCOdntZVBe-3mUO4iGXHioOOUKt60SZ835+2lyOoAAyeZpQRIP0LHtxhgdo9CCeiRngAIlkGiKlkhgQAAMlkkRrhgDRWk6NolHqy7iFBXhoMKZQmihbQ2ph2G4UhAaInswyptsihnhQZBgRBUGwfBiHBGYUAkYYOHChx4iENYwFuFAADiEDANxvGqG4RQEY6REdFJZEREkEhQL07DocGsh0SJfKGNo4mSVhPG4TJkArqZvFBAWAkxCc-HCSo+ASbQ4hMWgkHQXBCFpHJ2gKZyzDKcKqnqZplHbNRabOdAxlYOI4hICAFnCqo8nWh0iXJSAGDhZIkXaYBulVsZioSWlAVkEFzoVcA+V0GphUUcVEaKFWACSTUSOJwjhGkVUZYFWXMOUBUaWMjXNXuFHRuGJ56So3XNX1EhrmlGxFKUmWoR0JTTep0ZzQtshfDALousSLr1FAOFCFkWiRPQ61pIkQA)
 
@@ -32,7 +32,13 @@ Alright, so we now have two new tools in our toolbox: we can use `extends` to do
 export type MapOfAllAndOnlyKeys<
   T extends NonNullable<unknown>,
   KS extends string | number | symbol
-> = keyof T extends KS ? (T extends Record<KS, any> ? T : never) : never
+> = keyof T extends KS 
+  ? (
+    T extends Record<KS, any> 
+      ? T 
+      : never
+    ) 
+  : never
 ```
 
 Given an object type and a union of keys, this will ensure that the object uses only and all of the given keys.
