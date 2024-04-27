@@ -110,8 +110,7 @@ If you've ever heard some big-brain nerd-speak about HKTs, now you hopefully hav
 
 <img src="../../resources/cap-elevator.jpeg" />
 
-If you've ever heard an argument about the big M-word in Typescript you may have stumbled across mention of this
-concept: expressing Monads in full generality requires these HKTs. To wit, lets look at an example:
+If you've ever heard an argument about the big M-word in Typescript you may have stumbled across mention of this concept: expressing Monads in full generality requires these HKTs. But a Monad is just an interface that follows some rules. The main one is that a Monad should have a `bind` method (which we'll call `mbind` for "monadic bind" to not get it confused with `Function.prototype.bind`). To wit, lets look at an example:
 
 ```typescript
 class Maybe<T> {
@@ -121,10 +120,8 @@ class Maybe<T> {
     return new Maybe(val);
   }
 
-  mbind<U, V>(f: (x: U) => V): (y: Maybe<U>) => Maybe<V> {
-    return function(y: Maybe<U>): Maybe<V> {
-      return y.map(f);
-    }
+  mbind<U>(f: (x: T) => Maybe<U>): Maybe<U> {
+    return this.map(f).value;
   }
 }
 ```
@@ -134,18 +131,42 @@ Does this look like anything we have in JS? How about Promises! If we do `Promis
 ```typescript
 class MonadicPromise<T> extends Promise<T>  {
   map<U>(f: (x: T) => U): MonadicPromise<U> {
-    return this.then(f) as MonadicPromise<U>; // It's just an alias for .then
+    // It's just an alias for .then, we need the cast here for
+    // the very reason we're talking about lol
+    return this.then(f) as MonadicPromise<U>; 
   }
 
-  mbind<U, V>(f: (x: U) => V): (y: MonadicPromise<U>) => MonadicPromise<V> {
-    return function(y: MonadicPromise<U>): MonadicPromise<V> {
-      return y.map(f);
-    }
+  mbind<U>(f: (x: T) => MonadicPromise<U>): MonadicPromise<U> {
+    return this.map(f); // Promisese auto-flatten
   }
 }
 ```
 
-We can see that the method definitions for `Maybe` and `Promise` are *really* similiar, to the point where I actually copy/pasted them in my editor and did a little regex find-and-replace. So `Maybe` *is* a Monad\* and `MonadicPromise` *is* a Monad \*\* and we can see the similiarities in the code. Can we abstract this out as an `interface Monad` that these classes can implement? No! It's the exact same problem we ran into before: we can't have an interface that takes a generic type parameter that is itself generic!
+We can see that the method definitions for `Maybe` and `Promise` are *really* similiar, to the point where I actually copy/pasted them in my editor and did a little regex find-and-replace. So `Maybe` *is* a Monad\* and `MonadicPromise` *is* a Monad \*\* and we can see the similiarities in the code. Can we abstract this out as an `interface Monad` that these classes can implement? No! It's the exact same problem we ran into before: we can't have an interface that takes a generic type parameter that is itself generic! We can easily show this:
+
+```typescript
+interface Monad<T> {
+  mbind<U>(f: (x: T) => Monad<U>): Monad<U>
+}
+
+class MaybeMonad<T> extends Maybe<T> implements Monad<T> {}
+class MP<T> extends MonadicPromise<T> implements Monad<T> {}
+```
+
+Wait, um, actually, that seems to work. We did need those fancy pantsed HKTs after all! Well, actually we *do*:
+
+```typecript
+class Broken<T> implements Monad<T> {
+  constructor (public readonly value: T) {}
+
+  mbind<U>(f: (x: T) => MonadicPromise<U>): Maybe<U> {
+    const _val = f(this.value);
+    return new Maybe<U>(null);
+  }
+}
+```
+
+Here the compiler doesn't have any problem. But we do *have* a problem, part of the definition of a Monad that I glossed over before when talking about the rules is that `mbind` needs to return the same *kind* of Monad: `Maybe.mbind` should return a `Maybe`, `Promise.mbind` should return a `Promise`. Our `Broken` class' `mbind` takes a function that returns a `MonadicPromise` but then returns a `Maybe`!. When we wrote them to do the right thing everything worked ok, but we can't actually define an `interface` that actually enforces the rules. Typescript interfaces just aren't powerful enough to express this concept of a function that's generic over a generic container that returns the same type of generic container but with a different parameter. Something something subtype polymorphism. The Aristocrats!
 
 ## Why Does Any of this Matter?
 
@@ -155,11 +176,18 @@ If you have a shared interface for things, then you can write a suite of functio
 
 But there is one more really important thing even if none of that speaks to you: you need to recognize when the type problem that you are struggling with requires something that Typescript just isn't powerful enough to express so you can stop tilting with windmills and just kludge it the best you can.
 
+## TakeAways:
+
+* If you can write `type GetPromiseType<T> = T extends Promise<infer U> ? U : never;` and it's not goobledegak to you then you understood enough of this talk to matter.
+* If you understand that you can't have a generic generic without plugging in a concrete type, hopefully you won't try.
+* If you think this is all kinda high-falutin... well, you're not wrong but remember that `if` statements and garbage collection and a bunch of other stuff we take for granted was considered "academic" at one point!
+
 Anyway, hopefully all this stuff seems a little less scary now. Please feel free to do some reading up and look over this code (it's on github), play around with it in the TS Playground, etc.
 
 ## Useful Resources:
 
-
+* [Monads, Applicatives, and Functors in Pictures](https://www.adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
+* [fp-ts](https://gcanti.github.io/fp-ts/) Even though TS doesn't have HKTs this library (ab)uses interface extension to fake them pretty convincingly!
 
 ## Notes For Pedants:
 
