@@ -1,6 +1,7 @@
 # Talk \#9 Refactoring Types
 
 * [Playground](https://www.typescriptlang.org/play/?#code/JYWwDg9gTgLgBAJQKYEMDGMA0cDecAKUEYAzgOrAwAWAwlcADYAmUSAdtsujAHIRNI4AXzgAzIiDgByVtykBuAFCLgbGEiij0ggLIBPACr02Ac1yK4luAGtVTAFzSUUuAB9pAIykWrHxyRgoVTN3NgBXEA8NH0s0f0DgtzhwyOihZVEwtgxgCDYxCAgACgAPR30jYIBKcys4YFE4UoA6WzYmOABebqcpGpwYqzQ8kggGJGaGCBMWj2bWMFQYIoBmKqr5OAB6LbgAUSgoAEJB9PSVNQ0tNF09amCAQVqrNodewb84AKDTQbivhK-c6qdSabRwfT3UwAIWellejikXg+jhSUSgf1REXRinOMD0iwhemhSBgoMqpi6RKhJie7khxhM0IyWRyeQKEAATKVysTSeTGf1Bg0miVWnYuj0pM4hXVYiMxhMpjMxXMFktVutNjs4Hx9ocTqdccp8YTCMRyJQqHw2DwwgwGHRGCx2AAefBUnBCAB8VI9ADJcHA0PRmKw2I49iU0AwwgJXVwMHwBNhwg6klkBKJVEgmL7zkA)
+* [Refactor commit from KWC](https://github.com/krogertechnology/kap-web-client/pull/1404)
 
 ## It's Not Really Any Different
 
@@ -71,7 +72,7 @@ type PropsWithNonNullChildren<P = {}> = P & { children: Exclude<ReactNode, null 
 
 ## Use Your Best Judgement
 
-So when should you change the types and when should you use `Exculde`, `Omit`, `Pick` and friends instead? Condsider:
+So when should you take the additive compositional approach and change the types and when should you use the subtractive approach of `Exculde`, `Omit`, `Pick` and friends instead? Condsider:
 
 1. Clarity. `Exclude<ReactNode, null | undefined>` is clearer than `string | number | boolean | ReactElement | Iterable<ReactNode> | ReactPortal` even though they mean the same thing.
 2. Reuse. If I pull `{ a: string, b: string }` apart into `{ a: string }` and `{ b: string }` because I just want `a` can I reuse the pieces? Or just use `Pick`?
@@ -84,3 +85,94 @@ So when should you change the types and when should you use `Exculde`, `Omit`, `
 
 ## Case Study: KAP Web Client
 
+We have two main state objects, one for the browser and one for node.js. They began life at different points in the
+SDLC, they had different motivating use cases, and different properties. But over time they have undergone convergent
+evolution to be very very similar:
+
+```typescript
+type NodeKapGlobal = {
+  manifest: KapApplicationManifest
+  capabilities?: ICapMap
+  appModules?: AppModuleMap
+  appModuleMetaMap?: Record<string, ApplicationModuleMetadata>
+  platformConfig?: CapabilityMetadataMap
+  clientState?: DehydrateState
+  clientAssets?: string[]
+  clientRegisterUrls?: Record<string | CapabilityName, string>
+  controller?: any
+}
+
+type BrowserKapGlobal = {
+  manifest: KapApplicationManifest
+  capabilities?: Promise<ICapMap>
+  appModules?: Promise<AppModuleMap>
+  appModuleMetaMap: Record<string, ApplicationModuleMetadata>
+  platformConfig: CapabilityMetadataMap
+  platformFeatureFlagsConfig: PlatformFeatureFlagsConfig
+  clientState: DehydrateState | RadpackState
+  clientAssets: string[]
+  clientRegisterUrls: Record<string, string>
+}
+```
+
+Don't worry about the names. The point is, it's clear even at a glance there's a lot of overlap, it would be nice to be
+able to extract out the common bits to DRY up the types. But there are a few stumbling blocks:
+
+1. Some properties are required in one but optional in the other.
+2. Some are `Thing` but in the other it's `Promise<Thing>`
+3. Some properties have slightly different types.
+
+## Pick the low-hanging fruit first.
+
+The easiest is `manifest`: it's the same type and required in both:
+
+```typescript
+interface HasManifest {
+    manifest: KapApplicationManifest
+}
+```
+
+After that we've got `appModuleMetaMap`, `platformConfig`, `clientAssets`, and `clientRegisterUrls` which are required in the browser but optional in node. However, now there's a decision point: do we group these by their requiredness in this interface or by their semantic association? I vote for the latter. So we're going to shift gears and look at the domain: both `capabilities` and `appModules` are federated modules if you caught our presentation on that a few weeks back. So let's split *those* out:
+
+```typescript
+export interface GlobalKapFederated {
+  capabilities: ICapMap
+  appModules: AppModuleMap
+}
+```
+
+Okay, but those need to be Promises on the client:
+
+```typescript
+export type GlobalKapFederatedAsync = {
+  [k in keyof GlobalKapFederated]?: Promise<GlobalKapFederated[k]>
+}
+```
+
+and now we just need to add the rest of the building blocks:
+
+```typescript
+export interface GlobalKapProperties {
+  appModuleMetaMap: Record<string, ApplicationModuleMetadata>
+  platformConfig: CapabilityMetadataMap
+  clientState: DehydrateState | RadpackState
+  clientAssets: string[]
+  clientRegisterUrls: Record<string | CapabilityName, string>
+}
+```
+
+...and we can finally start building our types back up to replace the originals:
+
+```typescript
+export interface BetterBrowserGlobal extends HasManifest, GlobalKapFederatedAsync, GlobalKapProperties {
+  platformFeatureFlagsConfig: PlatformFeatureFlagsConfig
+}
+
+export interface BetterServerGlobal extends HasManifest, Partial<GlobalKapFederated>, Partial<GlobalKapProperties> {
+  controller?: any
+}
+```
+
+## Closing Thoughts:
+
+I want to stress that we did this over the course of 30 minutes with a well-understood an unlikely to change pair of types with lots of overlap. We split them up in a way that makes sense for the *domain*, not just where it was most convenient for how Typescript works. But generally, the same principles apply as refactoring code: you break a complicated thing apart into simpler pieces and then recombine them to make a better version of the original thing.
