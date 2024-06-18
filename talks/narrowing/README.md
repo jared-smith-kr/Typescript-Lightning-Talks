@@ -209,3 +209,7 @@ function f(x: AB): string {
 Note that you will as I said need to make the discriminant (the `kind ` property in this case) a statically knowable value, usually a string literal or a member of an enum. You can't use variables, because their values aren't known at compile-time.
 
 So in summary the Typescript compiler can figure it out, you just have to use an idiom it can statically verify instead of one that it can't, and it gives you a fair number of options.
+
+## Which is Better?
+
+I tried to give examples of what each method of type narrowing is good for, but *in general*: use discriminated unions whenever possible (i.e. you have a statically knowable discriminant). Use user-defined type guards any time you absolutely *have* to query the type of an object at runtime and devote extra care to getting the logic correct. Use `typeof` for primitives. Use `instanceof` only when you don't have something better: we should strive to program to interfaces rather than concrete classes but `instanceof` *only* works on classes. Use the `in` operator only as a last-ditch effort or as part of a more complicated check in a type guard.
