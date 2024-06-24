@@ -4,7 +4,9 @@
 
 <img src="../../resources/cap-elevator.jpeg" />
 
-If you've ever heard an argument about the big M-word in Typescript you may have stumbled across mention of this concept: expressing Monads in full generality requires these HKTs. But a Monad is just an interface that follows some rules. But Monads for some reason are big and scary to people so lets start with something simpler: Functors! Functors are just "something that has a 'map' method". Technically Monads must also be Functors, so if we can't get to a Functor interface then we can't have a Monad interface. Arrays have a map method, so lets test a Functor interface on Arrays:
+Everything I've talked about in this series up to this point has had *immediate* practical application: you can find literally everything I've mentioned so far in Kroger codebases like KAP Web Client, a-team-gaia, and Esperanto. But today, I'm going *deep*. Buckle up buttercup. No promises except you might find you can speak a few words of hyper-nerd by the end of this.
+
+If you've ever heard an argument about the big M-word in Typescript you may have stumbled across mention of this concept: expressing Monads in full generality requires these HKTs. But a Monad is just an interface that follows some rules. Despite that simple fact Monads for some reason are big and scary to people so lets start with something simpler: Functors! Functors are just "something that has a 'map' method". Technically Monads must also be Functors, so if we can't get to a Functor interface then we can't have a Monad interface. Arrays have a map method, so lets test a Functor interface on Arrays:
 
 ```typescript
 interface Functor<T> {
@@ -32,7 +34,7 @@ interface PromiseLike<T> {
 }
 ```
 
-And again we see the problem: we could reasonably want to assert that `PromiseLike.then` returns a new `PromiseLike` that's the same *kind* of `PromiseLike`, but we have no way to express this! A `Q` Promise isn't the same as a `Bluebird` Promise isn't the same as a `jQuery` deferred isn't the same as a native Promise, but the limitations on the interface means we can't express this constraint in the interface. 
+And again we see the problem: we could reasonably want to assert that `PromiseLike.then` returns a new `PromiseLike` that's the same *kind* of `PromiseLike`, but we have no way to express this! A `Q` Promise isn't the same as a `Bluebird` Promise isn't the same as a `jQuery` deferred isn't the same as a native Promise, but the limitations on the interface means we can't express this constraint in the interface.  The array example suffers from the same problem: we could override the `map` method to return a Functor other than an Array, which would be... unexpected behavior to say the least. We *want* to be able to express that `Functor.map` returns the same "kind" of thing as the *specific* Functor instance.
 
 
 ```typescript
@@ -42,12 +44,15 @@ interface DesiredPromiseLike<T> {
 }
 ```
 
-Getting back to functors imagine that `Array.prototype.map` could return a Promise instead without the compiler complaining! And unlike Promises where it's kinda sorta inconvenient not to be able to express this pattern, it's part of the *definition* of a `Functor`. We can't do that, so we can't have a true `Functor` interface. And no `Functor` means nothing based on it either: no Monads!
+Because unlike Promises where it's kinda sorta inconvenient not to be able to express this pattern, it's part of the *definition* of a `Functor`. We can't do that, so we can't have a true `Functor` interface. And no `Functor` means nothing based on it either: no Monad!
 
+## Lets Be Crystal Clear
 
-## I'm Not Going to Actually Talk About Monads
+You can *absolutely* define *a* Functor in Typescript. Javascript arrays are Functors. Promises are Functors. You can define *instances* of `Functor` all day long. But what you *can't* do is pull out the abstract pattern of `Functor` into its own thing: Typecript's type system isn't powerful enough, as we've seen. So when people say stuff about not having Functors and Monads in Typescript, they mean *that* rather than that you can't express them at all (or they just don't know what they're talking about, not uncommon especially on the internet).
 
-In case you're actually reading this, hello! You're about to read an Elder Scroll, and unfortunately you are **not** the Dragonborn. Just kidding, Monads aren't scary they're just an type required to obey certain rules. The main one is that a Monad should have a `bind` method (which we'll call `mbind` for "monadic bind" to not get it confused with `Function.prototype.bind`). To wit, lets look at an example:
+## The "Monad Tutorial Fallacy" Strikes Back
+
+Ok, so we've seen we can't have Functors and by extension, Monads. We're going to ignore that for a moment and pretend we can so we can talk about Monads. In case you're actually reading this, hello! You're about to read an Elder Scroll, and unfortunately you are **not** the Dragonborn. Just kidding, Monads aren't scary they're just an type required to obey certain rules. The main one is that a Monad should have a `bind` method (which we'll call `mbind` for "monadic bind" to not get it confused with `Function.prototype.bind`). To wit, lets look at an example:
 
 ```typescript
 class Maybe<T> {
@@ -102,19 +107,29 @@ class Broken<T> implements Monad<T> {
   constructor (public readonly value: T) {}
 
   mbind<U>(f: (x: T) => MonadicPromise<U>): Maybe<U> {
-    const _val = f(this.value);
+    const val = f(this.value);
     return new Maybe<U>(null);
   }
 }
 ```
 
-Here the compiler doesn't have any problem. But we do *have* a problem, part of the definition of a Monad that I glossed over before when talking about the rules is that `mbind` needs to return the same *kind* of Monad: `Maybe.mbind` should return a `Maybe`, `Promise.mbind` should return a `Promise`. Our `Broken` class' `mbind` takes a function that returns a `MonadicPromise` but then returns a `Maybe`!. When we wrote them to do the right thing everything worked ok, but we can't actually define an `interface` that actually enforces the rules. Typescript interfaces just aren't powerful enough to express this concept of a function that's generic over a generic container that returns the same type of generic container but with a different parameter. Something something subtype polymorphism. The Aristocrats!
+Here the compiler doesn't have any problem. But we do *have* a problem, part of the definition of a Monad that I glossed over before when talking about the rules is that `mbind` needs to return the same *kind* of Monad: `Maybe.mbind` should return a `Maybe`, `Promise.mbind` should return a `Promise`. Our `Broken` class' `mbind` takes a function that returns a `MonadicPromise` but then returns a `Maybe`!. When we wrote them to do the right thing everything worked ok, but we can't actually define an `interface` that actually enforces the rules. As stated previously, Typescript interfaces just aren't powerful enough to express this concept of a function that's generic over a generic container that returns the same type of generic container but with a different parameter. Something something subtype polymorphism. The Aristocrats!
 
 ## Now Back To Your Regularly Scheduled Programming: Why Does Any of this Matter?
 
-Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math PhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember how we got here with the utilities to extract Promise/Set/Array types?
+Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math PhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember back in talk \#8 with the utilities to extract Promise/Set/Array types?
 
-If you have a shared interface for things, then you can write a suite of functions to work on the *interface*. This means they're open and extensible: if somebody makes a new thing that implements that interface your function will work on it *without you needing to do anything to the functions*. Consider the `Symbol.iterator` protocol in Javascript! Consider HOCs in React!
+```typescript
+type GetPromiseType<T> = T extends Promise<infer U> ? U : never;
+type GetArrayType<T> = T extends Array<infer U> ? U : never;
+type GetSetType<T> = T extends Set<infer U> ? U : never;
+```
+There's an obvious pattern and duplication here, but we cannot abstract it away, the type system won't let us. It would
+sure be helpful if you could...
+
+More importantly, if you have a shared interface for things, then you can write a suite of functions to work on the *interface*. This means they're open and extensible: if somebody makes a new thing that implements that interface your function will work on it *without you needing to do anything to the functions*. Consider the `Symbol.iterator` protocol in Javascript! Or consider HOCs in React: their possible because every React component conforms to the `(props) => JSX.Element` signature!
+
+**Most** importantly, it gives developers a shared language to talk in. Once upon a time there was a fad calling these things "Design Patterns" and people even asked interview questions about them. Code that obeys rules is easier to reason about, easier to use, and easier to compose with other things that follow the same rules. The rules of functional design patterns like Monad and Functor are specifically designed to facilitate that composition and use.
 
 But there is one more really important thing even if none of that speaks to you: you need to recognize when the type problem that you are struggling with requires something that Typescript just isn't powerful enough to express so you can stop tilting with windmills and just kludge it the best you can.
 
