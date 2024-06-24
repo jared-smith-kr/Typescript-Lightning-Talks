@@ -22,7 +22,7 @@ type JSONDictionary = {
 
 And now we start to see how deep the Rabbit Hole goes: we can define containers that can contain themselves. Types can be recursive. Types can be mutually recursive. And types can be both recursive and mutually recursive at the same time. Magic. 
 
-There are some limitations, you can't pass a recursive definition as a type parameter, for instance you can't replace the index type for `JSONDictionary` with `Record<string, JSONArray | JSONPrimitive | JSONDictionary>`: you'll get a circular reference error.
+There are some limitations, you can't always pass a recursive definition as a type parameter, for instance you can't replace the index type for `JSONDictionary` with `Record<string, JSONArray | JSONPrimitive | JSONDictionary>`: you'll get a circular reference error.
 
 We all should be familiar with basic utility types like `Partial`, `Pick`, `Omit`, etc, but checkout this definition of `DeepPartial` from the [a-team-gaia repo](https://github.com/krogertechnology/a-team-gaia/blob/25e6472e72eba35aacaee57568b3dc40ab9ee798/packages/%40a-team/models/utils/src/module/data-manipulation/types.ts#L69)
 
