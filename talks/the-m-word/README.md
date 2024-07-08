@@ -117,7 +117,7 @@ Here the compiler doesn't have any problem. But we do *have* a problem, part of 
 
 ## Now Back To Your Regularly Scheduled Programming: Why Does Any of this Matter?
 
-Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math PhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember back in talk \#8 with the utilities to extract Promise/Set/Array types?
+Ok, I hear you, like Jared, bruh, I'm sure that's really cool if you're a Math PhD but I build React Components yo, do I really need any of this? And the answer is... probably not? A lot of this matters a lot more to library authors than to application developers. But that distinction is a false dichotomy: if you ever extract some code into it's own thing in order to use it in multiple places you are, in the relevant sense, a "library author". You have the same problem: can I extract this bit of code for reuse? Remember back in talk \#8 with the utilities to extract Promise/Set/Array types? Also, while you can *absolutely* have a solid career without knowing this, the people who e.g. built React are very much aware of these things and they're behind some of the principles of React architecture.
 
 ```typescript
 type GetPromiseType<T> = T extends Promise<infer U> ? U : never;
@@ -138,6 +138,7 @@ But there is one more really important thing even if none of that speaks to you:
 * If you can write `type GetPromiseType<T> = T extends Promise<infer U> ? U : never;` and it's not goobledegak to you then you understood enough of this talk to matter.
 * If you understand that you can't have a generic generic without plugging in a concrete type, hopefully you won't try.
 * If you think this is all kinda high-falutin... well, you're not wrong but remember that `if` statements and garbage collection and a bunch of other stuff we take for granted was considered "academic" at one point!
+* Do you want to just *use* React or do you want to help build the *next* React?
 
 Anyway, hopefully all this stuff seems a little less scary now. Please feel free to do some reading up and look over this code (it's on github), play around with it in the TS Playground, etc.
 
