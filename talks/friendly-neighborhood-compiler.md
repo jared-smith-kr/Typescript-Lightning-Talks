@@ -2,8 +2,7 @@
 
 ## _The compiler is your friend._
 
-When writing code in Typescript it can often be the case that the compiler yells at you for no good reason. Consider the
-following:
+When writing code in Typescript it can often be the case that the compiler yells at you for what seems like no good reason. Consider the following:
 
 ```typescript
 function getThing(): HTMLElement {
