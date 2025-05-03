@@ -1,6 +1,6 @@
 # Your Friendly Neighborhood Compiler
 
-## _The compiler is your friend._
+## _Compiler Driven Development_
 
 When writing code in Typescript it can often be the case that the compiler yells at you for what seems like no good reason. Consider the following:
 
