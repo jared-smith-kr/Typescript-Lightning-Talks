@@ -129,7 +129,7 @@ function isTrulyValidThing(x: unknown): x is Node {
 }
 
 function actuallyDoTheThing(el: Node) {
-  console.log(el.textContent);
+  console.log(el.textContent.replace(/some regex/, ""));
 }
 
 const actualThing = document.querySelector("some thing");
@@ -151,7 +151,7 @@ Note that in _both_ these cases if you modify the code in a way that invalidates
 
 ## Further Reading
 
-This talk came out of some conversations I've had with people lately that lead me to believe some of y'all still don't get why this stuff matters. It was also inspired by [an old blog post](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) I really like that I stumbled back across recently. It's written in Haskell, but it should be accessible enough. Also see [this 2016 paper](https://langsec.org/papers/langsec-cwes-secdev2016.pdf) on what it calls "shotgun parsing", i.e. mixing input validating and normalization code throughout the business logic. Last but not least, see the talk [Simple Made Easy](https://www.youtube.com/watch?v=SxdOUGdseq4) by Rich Hickey about the difference between ease and simplicity and why it matters.
+This talk came out of some conversations I've had with people lately that lead me to believe some of y'all still don't get why this stuff matters. It was also inspired by [an old blog post](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) I really like that I stumbled back across recently. It's written in Haskell, but it should be accessible enough. Also see [this 2016 paper](https://langsec.org/papers/langsec-cwes-secdev2016.pdf) on what it calls "shotgun parsing", i.e. mixing input validating and normalization code throughout the business logic. Also see the talk [Simple Made Easy](https://www.youtube.com/watch?v=SxdOUGdseq4) by Rich Hickey about the difference between ease and simplicity and why it matters.
 
 Last but certainly not least, I feel like a lot of you who were true experts in Javascript before Typescript came along are struggling as much but in a different way than folks aren't/weren't, because your objections are, in a sense, as much philosophical as they are about the mechanics of how static typing works. As a person who spent basically my entire career before coming to Kroger using dynamic languages at work I get it. I really do. I spent years in the trenches with Python, Javascript, etc. I know how it feels to be told that you need to use a tool that you don't understand and don't want to use. I hope this sort of analysis is useful to show how to work _with_ the compiler rather than against it. Because I didn't just slap some types on my initial version and tell the compiler to sod off: I used the type feedback to make the code actually _better_ than the original Javascript version!
 
