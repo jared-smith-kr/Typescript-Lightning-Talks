@@ -7,17 +7,17 @@ When writing code in Typescript it can often be the case that the compiler yells
 ```typescript
 function getThing(): HTMLElement {
   const thing = document.querySelector("some thing");
-  return thing; // <- err
+  return thing; // <- err Element is possibly null
 }
 
 function doSomethingWithThing(el: HTMLElement) {
-  console.log(el.textContent.replace(/some regex/, "")); // <- err
+  console.log(el.textContent.replace(/some regex/, "")); // <- err textContent is possibly null
 }
 
 try {
   doSomethingWithThing(getThing());
 } catch (_e: unknown) {
-  // don't care
+  // don't care, no-op
 }
 ```
 
@@ -70,8 +70,7 @@ Since many of us have various career aspirations, and none of us are immortal as
 
 ## How NOT to Solve This
 
-There is absolutely a wrong way to do this in Typescript-land (several actually). This code is a "solution" in the sense
-that it works:
+There is absolutely a wrong way to do this in Typescript-land (several actually). This code is a "solution" in the sense that it works:
 
 ```typescript
 function getThing2(): Element | null {
@@ -86,8 +85,7 @@ function doSomethingWithThing2(el: Element | null) {
 doSomethingWithThing2(getThing2());
 ```
 
-No try/catch is needed anymore, this won't blow up at runtime no matter where you put the code. But it's kinda ugly and
-the behavior has changed slightly: now if we don't find the element or find one with no `textContent` we log `undefined`. Huh. We'll Typescript might prevent an outage here, but at the cost of making the code worse. Lets try to clean this up by hoisting the check out of `doSomethingWithThing`:
+No try/catch is needed anymore, this won't blow up at runtime no matter where you put the code. But it's kinda ugly and the behavior has changed slightly: now if we don't find the element or find one with no `textContent` we log `undefined`. Huh. We'll Typescript might prevent an outage here, but at the cost of making the code worse. Lets try to clean this up by hoisting the check out of `doSomethingWithThing`:
 
 ```typescript
 function getThing3(): Element | null {
@@ -115,10 +113,10 @@ function doSomethingWithThing4(el: Element) {
 }
 
 const thing4 = document.querySelector("some thing");
-if (isValidThing(thing4)) doSomethingWithThing4(thing4); // <- Error!
+if (isValidThing(thing4)) doSomethingWithThing4(thing4); // <- Error! thing4 can't be null but compiler is unaware!
 ```
 
-Oops! Now we're back where we started: _we_ know that we're safe at runtime but only in this case and if the context changes the compiler can't help us. We also still have way too much conditional checking here... this API sucks! Why are we doing this to ourselves.
+Oops! Now we're back where we started: _we_ know that we're safe at runtime but only in this case and if the context changes the compiler can't help us. We also still have way too much conditional checking here... this API sucks! Why are we doing this to ourselves?!?
 
 I'm going to cut to the chase:
 
