@@ -101,7 +101,7 @@ const thing3 = getThing3();
 if (thing3) doSomethingWithThing3(thing3);
 ```
 
-Maybe we're mixing different concerns? Lets pull out the validation logic entirely:
+Huh, still ugly as sin. Maybe we're mixing different concerns? Lets pull out the validation logic entirely:
 
 ```typescript
 function isValidThing(x: unknown): boolean {
