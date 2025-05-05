@@ -85,7 +85,7 @@ function doSomethingWithThing2(el: Element | null) {
 doSomethingWithThing2(getThing2());
 ```
 
-No try/catch is needed anymore, this won't blow up at runtime no matter where you put the code. But it's kinda ugly and the behavior has changed slightly: now if we don't find the element or find one with no `textContent` we log `undefined`. Huh. We'll Typescript might prevent an outage here, but at the cost of making the code worse: this kind of Typescript code is part of why I think people don't like it. Lets try to clean this up by hoisting the check out of `doSomethingWithThing`:
+No try/catch is needed anymore, this won't blow up at runtime no matter where you put the code. But it's kinda ugly and the behavior has changed slightly: now if we don't find the element or find one with no `textContent` we log `undefined`. Huh. We'll Typescript might prevent an outage here, but at the cost of making the code worse. This kind of Typescript code is part of I think turns people off about Typescript in the first place. Lets try to clean this up by hoisting the check out of `doSomethingWithThing`:
 
 ```typescript
 function getThing3(): Element | null {
